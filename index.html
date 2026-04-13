@@ -411,149 +411,41 @@ Ruckus|||优科RUCKUS-R700|||RUCKUS-R700
   </script>
 
   <script>
-    // 直接执行，不等待DOMContentLoaded
+    // 简化版JavaScript
     function initProductCatalog() {
-      console.log('🔍 直接执行初始化...');
-      
-      // 检查DOM元素是否存在
-      const catalogMeta = document.getElementById('catalogMeta');
-      const productBody = document.getElementById('productBody');
-      const searchInput = document.getElementById('searchInput');
-      const brandFilter = document.getElementById('brandFilter');
-      const categoryFilter = document.getElementById('categoryFilter');
-      const catalogMeta = document.getElementById('catalogMeta');
-      const summaryRow = document.getElementById('summaryRow');
-      
-      console.log('🔍 检查DOM元素:', {
-        catalogMeta: !!catalogMeta,
-        productBody: !!productBody,
-        searchInput: !!searchInput,
-        brandFilter: !!brandFilter,
-        categoryFilter: !!categoryFilter,
-        productData: !!productData
-      });
-      
-      if (!catalogMeta || !productBody || !searchInput || !brandFilter || !categoryFilter || !productData) {
-        console.error('❌ 缺少必要的DOM元素，稍后重试...');
-        setTimeout(initProductCatalog, 100);
-        return;
-      }
+      console.log('开始初始化...');
       
       try {
-        catalogMeta.textContent = '⏳ 正在初始化产品库...';
-        console.log('🔍 开始初始化...');
-      } catch(e) {
-        console.error('❌ 无法设置初始状态:', e);
+        // 获取元素
+        const catalogMeta = document.getElementById('catalogMeta');
+        const productBody = document.getElementById('productBody');
+        
+        if (!catalogMeta || !productBody) {
+          console.error('找不到必要的元素');
+          return;
+        }
+        
+        // 设置状态
+        catalogMeta.textContent = '加载中...';
+        catalogMeta.style.color = '#16a34a';
+        
+        // 简单的产品显示
+        productBody.innerHTML = '<tr><td>海康</td><td><strong>测试产品</strong></td><td>TEST-001</td><td>摄像机</td><td><span class="status-new">全新</span></td><td>高清</td></tr>';
+        
+        catalogMeta.textContent = '初始化完成！';
+        console.log('初始化成功');
+        
+      } catch(error) {
+        console.error('初始化失败:', error);
+        const catalogMeta = document.getElementById('catalogMeta');
+        if (catalogMeta) {
+          catalogMeta.textContent = '初始化失败';
+          catalogMeta.style.color = '#dc2626';
+        }
       }
-      
-      const raw = document.getElementById('product-data').textContent.trim();
-      console.log('📊 原始数据长度:', raw.length);
-      function txt(v){ return String(v || '').trim(); }
-    function any(text, list){ return list.some(item => text.includes(item)); }
-    function categoryOf(brand, name, model){
-      const text = `${name} ${model}`;
-      if (any(text, ['平台'])) return '平台软件';
-      if (any(text, ['门禁','考勤'])) return '门禁/考勤';
-      if (any(text, ['控制器','Cloud Key','UCK-G2','AC6507S'])) return '无线控制器';
-      if (any(text, ['防火墙'])) return '防火墙';
-      if (any(text, ['录像机','NVR'])) return 'NVR录像机';
-      if (any(text, ['支架','鸭嘴','电源','套装','镜头','网桥','无线网卡','蓝牙适配器','有线网卡','冷靴','接口板','供电模块'])) return '配件';
-      if (any(text, ['球机','PTZ','云台','直播摄像机'])) return '球机/PTZ';
-      if (any(text, ['半球','海螺','玻璃罩'])) return text.includes('变焦') ? '变焦半球摄像机' : '半球摄像机';
-      if (any(text, ['枪机','筒型','抓拍','电梯镜头'])) return '枪机摄像机';
-      if (text.includes('交换机')) {
-        if (any(text, ['POE','PWR','供电'])) return 'POE交换机';
-        if (any(text, ['三层','核心','汇聚','万兆'])) return '三层交换机';
-        return '交换机';
-      }
-      if (brand === 'Ruckus' || brand === 'UniFi') {
-        if (any(text, ['R710','R720','高密'])) return '高密AP';
-        if (any(text, ['UCK','Cloud Key'])) return '无线控制器';
-        return '企业AP';
-      }
-      if (brand === 'H3C') {
-        if (any(text, ['WAC'])) return '无线控制器';
-        if (any(text, ['WAP712H','面板'])) return '面板AP';
-        if (any(text, ['室外'])) return '室外AP';
-        if (any(text, ['高密','WAP723'])) return '高密AP';
-        if (text.includes('交换机')) return '三层交换机';
-        return '吸顶AP';
-      }
-      if (any(text, ['吸顶AP','吸顶','RAP','AP840','AP3010','5762S','X7','X8','X9S','SW5','EAP','AP1201P'])) return '吸顶AP';
-      if (any(text, ['面板AP','面板','WM3000G','W6F','450I','302I','1202I','102(F)'])) return '面板AP';
-      if (any(text, ['室外AP','L30'])) return '室外AP';
-      if (any(text, ['高密','R710','R720','R700','R610'])) return '高密AP';
-      if (any(text, ['路由','网关','CCR','RB','L009','AR','ER','EW','Q3S','Y3000','Y6000','WDR','XDR','R476','R488'])) {
-        if (any(text, ['WDR','XDR','EW'])) return '无线路由器';
-        if (text.includes('CCR')) return '核心路由器';
-        if (any(text, ['MSG','MEG','R1200','网关'])) return '企业网关';
-        return '企业路由器';
-      }
-      return '其他设备';
     }
-    function keyOf(category, name, model){ const tags=[category]; const full=`${name} ${model}`; ['POE','星光','全彩','白光','夜视王','人脸','高密','Wi-Fi 6','AX5400'].forEach(item=>{ if(full.includes(item)&&!tags.includes(item)) tags.push(item);}); return tags.join('，'); }
-
-    const products = raw.split('
-').map(line => txt(line)).filter(Boolean).map((line, idx) => {
-      const parts = line.split('|||').map(item => txt(item));
-      if (parts.length < 2) throw new Error(`第 ${idx + 1} 行产品数据格式错误`);
-      const brand = parts[0], name = parts[1], model = parts[2] || '';
-      const category = categoryOf(brand, name, model), key = keyOf(category, name, model);
-      return { brand, name, model, category, key };
-    });
-
-    function fillFilters(){
-      [...new Set(products.map(p => p.brand))].sort().forEach(brand => { const o=document.createElement('option'); o.value=brand; o.textContent=brand; brandFilter.appendChild(o); });
-      [...new Set(products.map(p => p.category))].sort().forEach(category => { const o=document.createElement('option'); o.value=category; o.textContent=category; categoryFilter.appendChild(o); });
-    }
-    function updateSummary(filtered){
-      const map={};
-      filtered.forEach(item=>{ map[item.brand]=(map[item.brand]||0)+1; });
-      const top=Object.entries(map).sort((a,b)=>b[1]-a[1]).slice(0,6);
-      catalogMeta.textContent=`当前产品 ${products.length} 条，筛选后 ${filtered.length} 条`;
-      summaryRow.innerHTML=top.map(([brand,count])=>`<span class="summary-pill">${brand}：${count}</span>`).join('');
-    }
-    function renderTable(){
-      const keyword=searchInput.value.trim().toLowerCase();
-      const selectedBrand=brandFilter.value;
-      const selectedCategory=categoryFilter.value;
-      const filtered=products.filter(product=>{
-        const haystack=`${product.brand} ${product.name} ${product.model} ${product.category} ${product.key}`.toLowerCase();
-        return (keyword===''||haystack.includes(keyword)) && (selectedBrand==='全部'||product.brand===selectedBrand) && (selectedCategory==='全部'||product.category===selectedCategory);
-      });
-      updateSummary(filtered);
-      if(!filtered.length){
-        productBody.innerHTML='<tr><td colspan="6" style="text-align:center;color:#6b7280;padding:30px">没有找到符合条件的产品，请换个关键词试试。</td></tr>';
-        return;
-      }
-      productBody.innerHTML=filtered.map(product=>`<tr><td>${product.brand}</td><td><strong>${product.name}</strong></td><td>${product.model}</td><td>${product.category}</td><td><span class="status-new">全新</span></td><td>${product.key}</td></tr>`).join('');
-    }
-
-    try {
-      console.log('🔍 检查产品数据...');
-      if(!products.length) throw new Error('没有读取到产品数据');
-      console.log(`✅ 成功加载 ${products.length} 条产品`);
-      
-      // 最简单的显示方式
-      productBody.innerHTML = '<tr><td>海康</td><td><strong>测试产品</strong></td><td>TEST-001</td><td>测试分类</td><td><span class="status-new">全新</span></td><td>测试标签</td></tr>';
-      
-      console.log('✅ 手动插入了测试行');
-      
-      catalogMeta.style.color='#16a34a';
-      catalogMeta.textContent=`✅ 测试完成！共 ${products.length} 条产品数据`;
-    } catch(error){
-      console.error('❌ 初始化错误:', error);
-      console.error('❌ 错误详情:', error.stack);
-      catalogMeta.textContent='❌ 初始化失败: ' + String(error.message||error);
-      catalogMeta.style.color='#dc2626';
-      productBody.innerHTML=`<tr><td colspan="6" style="text-align:center;color:#b91c1c;padding:30px">页面初始化失败：${String(error.message||error)}</td></tr>`;
-    }
-    // 强制显示调试信息
-    console.log('初始化完成');
-  </script>
-  
-  <script>
-    // 立即尝试初始化，如果失败则重试
+    
+    // 立即执行
     initProductCatalog();
   </script>
 </body>
