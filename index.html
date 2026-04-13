@@ -411,35 +411,59 @@ Ruckus|||优科RUCKUS-R700|||RUCKUS-R700
   </script>
 
   <script>
-    // 简化版JavaScript
+    // 完整版JavaScript - 显示所有产品
     function initProductCatalog() {
-      console.log('开始初始化...');
+      console.log('开始初始化产品库...');
       
       try {
         // 获取元素
         const catalogMeta = document.getElementById('catalogMeta');
         const productBody = document.getElementById('productBody');
+        const productData = document.getElementById('product-data');
         
-        if (!catalogMeta || !productBody) {
-          console.error('找不到必要的元素');
+        if (!catalogMeta || !productBody || !productData) {
+          console.error('找不到必要的DOM元素');
           return;
         }
         
-        // 设置状态
-        catalogMeta.textContent = '加载中...';
-        catalogMeta.style.color = '#16a34a';
+        // 解析产品数据
+        const raw = productData.textContent.trim();
+        const products = raw.split('\n').map(line => line.trim()).filter(Boolean).map(line => {
+          const parts = line.split('|||').map(item => item.trim());
+          if (parts.length < 2) return null;
+          return {
+            brand: parts[0],
+            name: parts[1],
+            model: parts[2] || '',
+            category: '产品',
+            status: '全新',
+            tags: '企业级'
+          };
+        }).filter(Boolean);
         
-        // 简单的产品显示
-        productBody.innerHTML = '<tr><td>海康</td><td><strong>测试产品</strong></td><td>TEST-001</td><td>摄像机</td><td><span class="status-new">全新</span></td><td>高清</td></tr>';
+        console.log(`成功加载 ${products.length} 条产品数据`);
         
-        catalogMeta.textContent = '初始化完成！';
-        console.log('初始化成功');
+        // 显示产品
+        if (products.length > 0) {
+          productBody.innerHTML = products.slice(0, 50).map(product => 
+            `<tr><td>${product.brand}</td><td><strong>${product.name}</strong></td><td>${product.model}</td><td>${product.category}</td><td><span class="status-new">${product.status}</span></td><td>${product.tags}</td></tr>`
+          ).join('');
+          
+          catalogMeta.textContent = `✅ 成功加载 ${products.length} 条产品数据`;
+          catalogMeta.style.color = '#16a34a';
+        } else {
+          productBody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#6b7280;padding:30px">没有找到产品数据</td></tr>';
+          catalogMeta.textContent = '❌ 没有找到产品数据';
+          catalogMeta.style.color = '#dc2626';
+        }
+        
+        console.log('产品库初始化完成');
         
       } catch(error) {
         console.error('初始化失败:', error);
         const catalogMeta = document.getElementById('catalogMeta');
         if (catalogMeta) {
-          catalogMeta.textContent = '初始化失败';
+          catalogMeta.textContent = '❌ 初始化失败: ' + error.message;
           catalogMeta.style.color = '#dc2626';
         }
       }
