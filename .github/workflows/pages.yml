@@ -18,7 +18,7 @@ jobs:
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v5.0.0
         with:
-          path: index.html
+          path: .
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v5.0.0
