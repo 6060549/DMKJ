@@ -2,33 +2,54 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>多米科技新员工培训手册</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>多米科技新员工培训手册（优化版）</title>
   <style>
     :root{--bg:#f4f7fb;--card:#fff;--text:#1f2937;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--accent-soft:#eff6ff;--ok:#065f46;--ok-bg:#d1fae5}
     *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
     .container{width:min(1480px,95vw);margin:0 auto;padding:24px 0 60px}
     .hero{background:linear-gradient(135deg,#0f172a,#2563eb 55%,#60a5fa);color:#fff;border-radius:24px;padding:32px;box-shadow:0 18px 42px rgba(37,99,235,.22)}
-    .hero h1{margin:0 0 10px;font-size:36px}.hero p{margin:8px 0;max-width:980px;color:rgba(255,255,255,.92)}
+    .hero h1{margin:0 0 10px;font-size:36px} .hero p{margin:8px 0;max-width:980px;color:rgba(255,255,255,.92)}
     .layout{display:grid;grid-template-columns:245px 1fr;gap:18px;margin-top:20px;align-items:start}
-    .sidebar{position:sticky;top:16px;background:linear-gradient(180deg,#f8fbff 0%,#eef5ff 100%);border:1px solid #dbeafe;border-radius:22px;padding:18px;box-shadow:0 10px 28px rgba(37,99,235,.08);max-height:calc(100vh - 32px);overflow:auto}
-    .sidebar h3{margin:0 0 12px;font-size:18px;color:#1d4ed8}.nav-list{display:grid;gap:8px}
+    .sidebar{position:sticky;top:16px;background:linear-gradient(180deg,#f8fbff 0%,#eef5ff 100%);border:1px solid #dbeafe;border-radius:22px;padding:18px;box-shadow:0 10px 28px rgba(37,99,235,.08);max-height:calc(100vh - 32px);overflow:auto;transition:all 0.2s}
+    .sidebar h3{margin:0 0 12px;font-size:18px;color:#1d4ed8;display:flex;justify-content:space-between;align-items:center}
+    .nav-list{display:grid;gap:8px}
     .nav-list a{display:block;text-decoration:none;color:#1e3a8a;background:#fff;border:1px solid #dbeafe;border-radius:14px;padding:10px 12px;font-size:14px;font-weight:600;transition:all .18s ease}
     .nav-list a:hover{background:#2563eb;color:#fff;border-color:#2563eb;transform:translateX(2px)}
-    .main{display:grid;gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 6px 24px rgba(15,23,42,.05)}
-    .section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}.section-head h2{margin:0;font-size:24px}.section-meta{font-size:13px;color:var(--muted)}
-    .grid-2,.grid-3,.brand-grid{display:grid;gap:14px}.grid-2,.brand-grid{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(3,1fr)}
-    .brand-card{border:1px solid var(--line);background:#fff;border-radius:18px;padding:18px}.brand-card h3{margin:0 0 8px;font-size:18px}
+    .main{display:grid;gap:18px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 6px 24px rgba(15,23,42,.05)}
+    .section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+    .section-head h2{margin:0;font-size:24px} .section-meta{font-size:13px;color:var(--muted)}
+    .grid-2,.grid-3,.brand-grid{display:grid;gap:14px} .grid-2,.brand-grid{grid-template-columns:repeat(2,1fr)} .grid-3{grid-template-columns:repeat(3,1fr)}
+    .brand-card{border:1px solid var(--line);background:#fff;border-radius:18px;padding:18px} .brand-card h3{margin:0 0 8px;font-size:18px}
     .brand-tag{display:inline-block;padding:5px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:12px;border:1px solid #dbeafe;margin-right:6px;margin-bottom:6px}
     .tip{padding:14px 16px;border-radius:14px;margin-top:12px;border-left:5px solid var(--accent);background:#eff6ff}
     .muted{color:var(--muted)} ul.clean{padding-left:18px;margin:0} ul.clean li{margin:7px 0}
-    .toolbar{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin-top:12px}input,select{width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:#fff;font-size:14px;outline:none}
-    .summary-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.summary-pill{background:#f8fafc;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px}
-    table{width:100%;border-collapse:collapse;margin-top:16px;background:#fff;border-radius:14px;overflow:hidden}th,td{padding:12px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;font-size:13px}th{background:#eff6ff;color:#1e3a8a;position:sticky;top:0;z-index:1}tbody tr:hover{background:#f8fbff}
-    .status-new{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap;background:var(--ok-bg);color:var(--ok)}
+    .toolbar{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:12px;margin-top:12px;align-items:center}
+    input,select,button{width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:#fff;font-size:14px;outline:none}
+    button{background:#2563eb;color:white;border:none;cursor:pointer;font-weight:600;transition:0.2s}
+    button:hover{background:#1e40af}
+    .summary-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .summary-pill{background:#f8fafc;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:12px}
+    table{width:100%;border-collapse:collapse;margin-top:16px;background:#fff;border-radius:14px;overflow:hidden}
+    th,td{padding:12px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;font-size:13px;word-break:break-word}
+    th{background:#eff6ff;color:#1e3a8a;position:sticky;top:0;z-index:1}
+    tbody tr:hover{background:#f8fbff}
     .matrix{overflow:auto}
-    @media (max-width:1200px){.layout{grid-template-columns:1fr}.sidebar{position:static;max-height:none}.grid-2,.grid-3,.brand-grid,.toolbar{grid-template-columns:1fr 1fr}}
-    @media (max-width:760px){.grid-2,.grid-3,.brand-grid,.toolbar{grid-template-columns:1fr}.hero h1{font-size:28px}th,td{font-size:12px}}
+    /* 移动端侧边栏折叠 */
+    .sidebar-toggle{display:none;background:#2563eb;color:#fff;border:none;padding:8px 12px;border-radius:30px;font-size:14px;cursor:pointer;margin-bottom:12px}
+    @media (max-width:1200px){
+      .layout{grid-template-columns:1fr}
+      .sidebar{position:static;max-height:none;display:block}
+      .sidebar.collapsed{display:none}
+      .sidebar-toggle{display:inline-block}
+      .grid-2,.grid-3,.brand-grid,.toolbar{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:760px){
+      .grid-2,.grid-3,.brand-grid,.toolbar{grid-template-columns:1fr}
+      .hero h1{font-size:28px}
+      th,td{font-size:12px}
+    }
   </style>
 </head>
 <body>
@@ -36,12 +57,12 @@
     <section class="hero">
       <h1>多米科技新员工培训手册</h1>
       <p>让新员工先理解公司定位和业务流程，再按品牌学习，再通过总产品库做检索和销售训练。</p>
-      <p>这是一份单文件 HTML，样式、脚本、数据都写在同一个文件里，上传到网站空间后可直接访问。</p>
+      
     </section>
 
     <div class="layout">
-      <aside class="sidebar">
-        <h3>快速导航</h3>
+      <aside class="sidebar" id="sidebar">
+        <h3>快速导航 <button class="sidebar-toggle" id="closeSidebarBtn" style="background:transparent;color:#1d4ed8;font-size:12px;padding:0;display:none;">✖</button></h3>
         <div class="nav-list">
           <a href="#company-profile">公司定位与优势</a>
           <a href="#service-flow">标准服务流程</a>
@@ -56,6 +77,8 @@
       </aside>
 
       <main class="main">
+        <button class="sidebar-toggle" id="openSidebarBtn" style="margin-bottom:10px;">☰ 导航</button>
+
         <section class="card" id="company-profile">
           <div class="section-head"><h2>公司定位与优势</h2></div>
           <div class="grid-2">
@@ -105,20 +128,11 @@
           <div class="grid-2">
             <div class="brand-card">
               <h3>初次接触</h3>
-              <ul class="clean">
-                <li>先问客户是新建项目还是升级改造。</li>
-                <li>再问主要解决网络、监控，还是整体弱电问题。</li>
-                <li>最后讲公司优势：方案稳定、组合灵活、后续维护方便。</li>
-              </ul>
+              <ul class="clean"><li>先问客户是新建项目还是升级改造。</li><li>再问主要解决网络、监控，还是整体弱电问题。</li><li>最后讲公司优势：方案稳定、组合灵活、后续维护方便。</li></ul>
             </div>
             <div class="brand-card">
               <h3>客户必问问题</h3>
-              <ul class="clean">
-                <li>项目地点、面积、房间数量、终端数量。</li>
-                <li>宽带数量、带宽大小、是否跨境访问。</li>
-                <li>监控点位、存储天数、夜晚要求。</li>
-                <li>是否需要高密 Wi‑Fi、漫游、远程管理。</li>
-              </ul>
+              <ul class="clean"><li>项目地点、面积、房间数量、终端数量。</li><li>宽带数量、带宽大小、是否跨境访问。</li><li>监控点位、存储天数、夜晚要求。</li><li>是否需要高密 Wi‑Fi、漫游、远程管理。</li></ul>
             </div>
           </div>
         </section>
@@ -146,7 +160,7 @@
           <div class="brand-grid">
             <div class="brand-card"><h3>海康 / 大华</h3><div><span class="brand-tag">监控摄像机</span><span class="brand-tag">NVR</span><span class="brand-tag">POE交换机</span></div><p class="muted">先问安装位置、观看距离、夜晚效果和存储天数，再定摄像机和 NVR。</p></div>
             <div class="brand-card"><h3>华为 / H3C</h3><div><span class="brand-tag">交换机</span><span class="brand-tag">路由器</span><span class="brand-tag">防火墙</span><span class="brand-tag">AP / AC</span></div><p class="muted">先分接入、汇聚、核心，再定 POE、三层、光口、万兆和安全设备。</p></div>
-            <div class="brand-card"><h3>爱快 / iKuai</h3><div><span class="brand-tag">企业网关</span><span class="brand-tag">交换机</span><span class="brand-tag">吸顶AP</span><span class="brand-tag">面板AP</span></div><p class="muted">适合门店、办公室、酒店、宿舍一体化方案。</p></div>
+            <div class="brand-card"><h3>爱快</h3><div><span class="brand-tag">企业网关</span><span class="brand-tag">交换机</span><span class="brand-tag">吸顶AP</span><span class="brand-tag">面板AP</span></div><p class="muted">适合门店、办公室、酒店、宿舍一体化方案。</p></div>
             <div class="brand-card"><h3>MikroTik</h3><div><span class="brand-tag">RouterOS</span><span class="brand-tag">核心路由</span><span class="brand-tag">企业路由</span></div><p class="muted">核心卖点是功能和性能。</p></div>
             <div class="brand-card"><h3>锐捷 / TP-Link</h3><div><span class="brand-tag">AP</span><span class="brand-tag">交换机</span><span class="brand-tag">企业路由</span><span class="brand-tag">云管理</span></div><p class="muted">适合酒店、办公室、宿舍、公区和轻商用场景。</p></div>
             <div class="brand-card"><h3>Ruckus / UniFi</h3><div><span class="brand-tag">高密无线</span><span class="brand-tag">统一管理</span><span class="brand-tag">高端AP</span></div><p class="muted">Ruckus 更偏高密无线性能，UniFi 更偏统一管理和生态体验。</p></div>
@@ -195,12 +209,13 @@
             <input id="searchInput" type="text" placeholder="输入品牌 / 产品名 / 型号 / 关键词，例如：CCR、RAP2260、夜视王、POE、U6、NVR" />
             <select id="brandFilter"><option value="全部">全部品牌</option></select>
             <select id="categoryFilter"><option value="全部">全部分类</option></select>
+            <button id="resetFilterBtn">重置筛选</button>
           </div>
           <div class="summary-row" id="summaryRow"></div>
           <div style="overflow:auto;max-height:1000px;margin-top:10px">
             <table>
               <thead>
-                <tr><th style="min-width:140px">品牌</th><th style="min-width:260px">产品名称</th><th style="min-width:200px">型号</th><th style="min-width:150px">分类</th><th style="min-width:90px">成色</th><th style="min-width:220px">培训重点</th></tr>
+                <tr><th style="min-width:140px">品牌</th><th style="min-width:260px">产品名称</th><th style="min-width:200px">型号</th><th style="min-width:150px">分类</th><th style="min-width:280px">培训重点</th></tr>
               </thead>
               <tbody id="productBody"></tbody>
             </table>
@@ -210,304 +225,192 @@
     </div>
   </div>
 
-  <script id="product-data" type="text/plain">
-海康|||海康200万电梯镜头（2mm）|||DS-2CD3525FV3-IT（2mm）
-海康|||海康200万室外枪机（4mm）|||DS-IPC-B12HV3-IA/POE（4mm）
-海康|||海康400万海螺半球1345-LA（2.8mm）|||DS-2CD1345V2-LA（2.8mm）
-海康|||海康400万海螺半球1345-LA（4mm）|||DS-2CD1345V2-LA（4mm）
-海康|||海康400万室外枪机1245-L（4mm）|||DS-2CD1245-LA（4mm）
-海康|||海康400万云台枪机（星光级4mm）|||DS-2CD3T46WD-LP（4mm）
-海康|||海康400万室外枪机V3-I3（星光级4mm）|||DS-2CD3T46WDV3-I3（4mm）
-海康|||海康400万人脸变焦半球A4（7-35mm）|||DS-2CD3746FWDA4/F-IZS(7-35mm)
-海康|||海康400万玻璃罩半球（星光级4mm）|||DS-2CD3146FWD-I（4mm）
-海康|||海康400万玻璃罩半球（星光级2.8mm）|||DS-2CD3146FWD-I（2.8mm）
-海康|||海康400万2.5寸4倍PTZ球机（2.8-12mm）|||DS-2DC2D40IW-DE3 C0 S6 C（2.8-12mm）
-海康|||海康400万3寸4倍PTZ球机C0 T5（2.8-12mm）|||IDS-2PT3D40IX-DE(C0)(T5)（2.8-12mm）
-海康|||海康400万3寸4倍PTZ球机C0 S6（2.8-12mm）|||DS-2PT3D40IW-DE(C0)(S6)（2.8-12mm）
-海康|||海康400万4寸23倍PTZ球机23X S6（4.8-110mm）|||DS-2PT7D40IW-DE(23X)(S6)（4.8-110mm）
-海康|||海康400万4寸25倍PTZ球机（海外版4.8-120mm）|||DS-2DE4425W-DE3 S6 4MP / 25X（4.8-120mm）
-海康|||海康800万3寸4倍红外PTZ球机（2.8-12mm）|||iDS-2PT3D80IX(C0)(T5)（2.8-12mm）
-海康|||海康威视800万电动变焦镜头（3.8-16mm）|||HV3816D（3.8-16mm）
-海康|||海康800万电动变焦枪机摄像机|||DS-2CD7087EWD-A D
-海康|||海康500万人脸变焦半球（海外版2.7-13.5mm）|||DS-2CD3756G2T-IZS（2.7-13.5mm）
-海康|||海康400万单摄180度半球镜头（1.68mm）|||DS-2CD3346P1-I（1.68mm）
-海康|||海康400万单摄180度枪机镜头（1.68mm）|||DS-2CD3T46P1-I（1.68mm）
-海康|||海康400万双摄全彩180度筒型广角（2.8mm）|||DS-2CD3T47FWDP2V2-L（2.8mm）
-海康|||海康硬盘录像机8路1盘位|||DS-7808N-F1
-海康|||海康硬盘录像机8路2盘位（人脸识别）|||DS-7808N-Z2/X（B）
-海康|||海康硬盘录像机16路2盘位|||DS-7816N-R2
-海康|||海康硬盘录像机32路2盘位|||DS-7832N-R2
-海康|||海康硬盘录像机32路4盘位|||DS-7932N-R4（C）
-海康|||海康硬盘录像机32路8盘位|||DS-8832N-R8-V3
-海康|||海康硬盘录像机64路8盘位|||DS-8864N-R8（C）
-海康|||海康24口全千兆POE交换机（24电+2光）|||DS-3E0526SP-E
-海康|||海康48口全千兆POE交换机（48电+2电+2光）|||DS-3E1552SP-E
-海康|||海康人脸/考勤/门禁一体机|||DS-K1T341BMW
-海康|||海康枪机鸭嘴支架|||DS-1212ZJ
-海康|||海康壁挂球机支架|||DS-1602ZJ
-海康|||海康吊装球机支架|||DS-1661ZJ
-海康|||海康壁挂枪机支架|||DS-701ZJ
-海康|||枪机小号加厚鸭嘴头|||35*78*45mm
-海康|||海康鸭嘴伸缩支架60-120cm|||60*120cm
-海康|||海康鸭嘴伸缩支架75-150cm|||75*150cm
-海康|||海康800万变焦枪机(2.7-13.5mm)|||DS-2CD7A87EWDV3-XZS(2.7-13.5mm)
-海康|||海康800万7寸23倍室外云台球机（5.9~135.7 mm）|||IDS-2DC7823IW-D（5.9mm~135.7 mm）
-海康|||iSecure Center 综合安防管理平台|||600路
-海康|||海康400万室外枪机1245-L（6mm）|||DS-2CD1245-LA（6mm）
-海康|||16画面H.265解码键盘|||NK9103C-16
-海康|||海康400万变焦枪机（2.7-13.5mm）|||DS-2PT7D4TDJD
-海康|||海康400万人脸变焦半球（2.7-13.5mm）|||DS-2CD274TDJD
-海康|||36画面H.265解码键盘|||NK9103C-36
-海康|||海康400万4寸25倍PTZ球机（4.8-120mm）|||DS-2PT7D425TDJD/PTZ
-海康|||海康4+1口千兆POE交换机|||DS-3E0505SP-E
-海康|||海康400万室外枪机V3-L（星光级6mm）|||DS-2CD3T46WDV3-L-6mm
-海康|||海康200米电梯网桥-POE版|||DS-3WF-T200P-E
-海康|||海康400万室外枪机V3-L（星光级2.8mm）|||DS-2CD3T46WDV3-L（2.8mm）
-海康|||海康400万室外枪机V3-L（星光级4mm）|||DS-2CD3T46WDV3-L（4mm）
-海康|||太阳能套装60W48AH（板+电池）|||WPS-S60W-177WH/ 60W48AH
-海康|||太阳能套装120W60AH（板+电池）|||WPS-S120W-222WH /120W60AH
-海康|||海康400万低功耗太阳能抓拍一体机（星光4G）|||DS-2XS2T46XMV3-IGLE/C05S07
-海康|||萤石云500万家用镜头-海外版（3.6mm）|||CS-TY1（PRO 5MP-W2）
-海康|||海康500万电动变焦枪机摄像机|||DS-2CD5052F-(A)(P)
-海康|||桢田16路分屏解码器-4K|||ND7016
-海康|||桢田32路分屏解码器-4K|||ND7032
-海康|||海康400万4寸23倍智能红外吊装球机（4.8-110mm）|||DS-2DE4423IW-DE
-海康|||海康400万臻全彩室外枪机（6mm）|||DS-2CD3T47EWDV3-L（6mm）
-海康|||海康超高清8倍变焦直播摄像机-U168R Pro|||DS-UCV-U168R Pro
-海康|||冷靴万向云台-8067|||8067
-海康|||海康球机电源-36V|||
-海康|||海康400万臻全彩海螺型半球（2.8mm）|||DS-2CD3347WDV3-L（2.8mm）
-海康|||萤石云300万室外镜头-海外版（3.6mm）|||CS-H8c（PRO 3MP）
-海康|||海康400 万智能混合光防范型网络摄像机(海外版）4mm|||DS-2CD1043G2-LIUF/SL（4mm)
-大华|||Dahua大华400万海螺半球（白光2.8mm）|||DH-T649A-IL
-大华|||Dahua大华400万室外大枪机+支架（白光3.6mm）|||DH-B649MA-IL
-大华|||Dahua大华400万海螺半球（夜视王2.8mm）|||DH-T849S-PRO
-大华|||Dahua大华400万室外大枪机+支架（夜视王3.6mm）|||DH-B849MS-PRO
-大华|||Dahua大华硬盘录像机8路1盘位|||DH-8808-M1
-大华|||Dahua大华硬盘录像机16路1盘位|||DH-8816-M1
-大华|||Dahua大华硬盘录像机16路2盘位|||DH-8816-P2
-大华|||Dahua大华硬盘录像机32路2盘位|||DH-8832-P2
-大华|||Dahua大华硬盘录像机32路4盘位|||DH-8832-P4
-大华|||Dahua大华硬盘录像机32路8盘位|||DH-9832-S8
-大华|||Dahua大华硬盘录像机64路8盘位|||DH-9864-S8
-大华|||Dahua大华400万海螺半球（白光3.6mm）|||DH-T649A-IL-0360B
-大华|||Dahua大华400万室外枪机+支架（白光2.8mm）|||DH-B649A-IL-0280B
-大华|||Dahua大华400万海螺半球（夜视王3.6mm）|||DH-T849S-PRO-0360B
-大华|||Dahua大华400万室外枪机+支架（夜视王2.8mm）|||DH-B849S-PRO-0280B
-大华|||Dahua大华400万室外大枪机+支架（夜视王6mm）|||DH-B849MS-PRO-0600B
-大华|||Dahua大华400万室外小枪机+支架（夜视王3.6mm）|||DH-B849S-PRO
-大华|||Dahua大华8口云管POE交换机|||DH-DUOMI4010-8GT-60W
-大华|||Dahua大华16口云管POE交换机|||DH-DUOMI4220-16GT-135W
-大华|||Dahua大华24口云管POE交换机|||DH-DUOMI4228-24GT-240W
-TP-Link|||TP双频无线路由器-AC1200|||TL-WDR5620
-TP-Link|||TP千兆WiFi6无线路由器-AX5400|||TL-XDR5480
-TP-Link|||TP全千兆8口交换机|||TL-SG1008D
-TP-Link|||TP全千兆16口云管理POE交换机|||TL-SG2016MP
-TP-Link|||TP全千兆16+2光口云管理POE交换机|||TL-SG2218P
-TP-Link|||TP全千兆24口云管理交换机|||TL-SG2024D
-TP-Link|||TP全千兆24+2光口云管理POE交换机|||TL-SG2226P
-TP-Link|||TP多WAN口千兆路由器（小型企业）|||TL-R476G+
-TP-Link|||TP多WAN多LAN千兆POE路由器（小型企业）|||TL-R488GPM-AC
-TP-Link|||TP室外高功率AP|||AP1201P
-TP-Link|||TP面板AP-450I（POE）|||TL-AP450I-POE
-TP-Link|||TP面板AP（接电）|||TL-AP302I-DC
-TP-Link|||TP面板AP-1202（POE）|||TL-AP1202I-POE
-TP-Link|||TP全千兆有线网卡|||TG-3269E
-TP-Link|||TP-USB蓝牙适配器免驱-UB240|||TL-UB240
-TP-Link|||TP四核企业级万兆路由器（大型企业6220）|||TL-ER6220T
-TP-Link|||TP-USB无线网卡-免驱版|||TL-XDN6000H
-TP-Link|||TP全千兆8+2口云管理POE交换机|||TL-SG2210LP
-TP-Link|||TP全千兆16口云管理交换机|||TL-SG2016D
-TP-Link|||TP全千兆24口云管理POE交换机|||TL-SG2024MP
-TP-Link|||TP全千兆4+1+1口云管理POE交换机|||TL-SG2206LPF
-TP-Link|||TP全千兆5口云管理交换机|||TL-SG2005
-TP-Link|||TP四核多WAN口万兆企业VPN路由器|||TL-ER3229T GE
-H3C|||H3C企业级双频千兆吸顶AP|||EWP-WAP722S-W2-FIT
-H3C|||H3C企业级双频面板AP|||EWP-WAP712H-FIT
-H3C|||H3C企业级三频千兆高密AP|||EWP-WAP723-W2-FIT
-H3C|||H3C企业级双频室外AP|||EWP-WAP712X-FIT
-H3C|||H3C企业级双频千兆吸顶AP|||EWP-WAP722E-W2-FIT
-H3C|||H3C核心多业务无线控制器380-60|||EWP-WAC380-60
-H3C|||H3C24口千兆三层网管型交换机+4光口|||S5560S-28P-SI
-华为|||华为24口千兆POE交换机S1|||S1730S-S24P4S-A1
-华为|||华为48口千兆交换机S5-A1|||S5735S-L48T4S-A1
-华为|||华为48口千兆POE交换机S5|||S5735S-L48P4S-A1
-华为|||华为三层核心24口POE交换机|||S5731-H24P4XC
-华为|||华为AR企业级路由器（4电+4光）|||AR6140-S
-华为|||华为吸顶AP（3010）|||AP3010DN-V2
-华为|||华为下一代企业防火墙6309E|||USG6309E
-华为|||华为下一代企业防火墙6315E|||USG6315E
-华为|||华为24口千兆交换机S5-QA2|||S5735S-L24T4S-QA2
-华为|||华为24口千兆POE交换机S5-A2|||S5735S-L24P4S-A2
-华为|||华为24口千兆POE交换机S5-A1|||S5735S-L24P4S-A1
-华为|||华为企业级核心汇聚交换机|||S5735S-H24S4X-A
-华为|||华为三层全光汇聚交换机（24千兆光+4万兆光+8复用+2万兆堆叠）|||S5735-L24ST4XE-A-V2
-华为|||华为三层全光汇聚交换机（48千兆光+4万兆光）|||S5735-L48S4XE-A-V2
-华为|||华为三层全光汇聚交换机（24千兆光+4万兆光+8复用）|||S5735S-L24ST4X-A3
-华为|||华为AR企业级路由器（8电+1万兆光）|||S6730S-S24X6Q-A
-华为|||华为48口万兆光接口板|||LSS7X48SX6SO
-华为|||华为无线接入控制器-AC6507S|||AC6507S
-华为|||华为千兆双频吸顶AP-5762S|||AirEngine 5762S-12
-爱快 / iKuai|||IK企业网关-MEG200|||IK-MEG200
-爱快 / iKuai|||IK企业级桌面路由-Q3S|||IK-Q3S
-爱快 / iKuai|||IK企业网关-MSG100|||IK-MSG100
-爱快 / iKuai|||IK企业网关-MSG200|||IK-MSG200
-爱快 / iKuai|||IK企业网关-MSG300|||IK-MSG300
-爱快 / iKuai|||IK企业网关-MSG400|||IK-MSG400
-爱快 / iKuai|||IK企业网关-MSG460X|||IK-MSG460X
-爱快 / iKuai|||IK企业网关-MSG560X|||IK-MSG560X
-爱快 / iKuai|||IK双频千兆面板AP-W6F|||IK-W6F
-爱快 / iKuai|||IK千兆双频吸顶AP-SW5|||IK-SW5
-爱快 / iKuai|||IK千兆双频吸顶AP-X8|||IK-X8
-爱快 / iKuai|||IK多业务企业路由器M100|||IK-M100
-爱快 / iKuai|||IK多业务企业路由器M200|||IK-M200
-爱快 / iKuai|||IK千兆双频室外AP-L30|||IK-L30
-爱快 / iKuai|||IK千兆双频面板AP-WM3000G|||IK-WM3000G-P
-爱快 / iKuai|||IK千兆8口交换机|||IK-ST08G
-爱快 / iKuai|||IK百兆16+2+1口POE交换机（带1光口）|||IK-S2119D-E
-爱快 / iKuai|||IK百兆24+2+1口POE交换机（带1光口）|||IK-S2127D-E
-爱快 / iKuai|||IK千兆24+2+2口POE交换机（带2光口）|||IK-S3128D-E
-爱快 / iKuai|||IK三层网管型48口千兆交换机（48电+4万兆光）|||IK-J7052
-爱快 / iKuai|||IK三层网管型12口万兆全光交换机|||IK-S7012XS
-爱快 / iKuai|||IK企业级POE一体化路由器-M10S|||IK-M10S
-爱快 / iKuai|||IK企业网关-R1200|||IK-R1200
-爱快 / iKuai|||IK企业级桌面路由-Y3000G Pro|||IK-Y3000G Pro
-爱快 / iKuai|||IK二层网管型24口千兆交换机（24电+4光）|||IK-J7028
-爱快 / iKuai|||IK三层网管型24口2.5G交换机（24个2.5G电+4万兆光）|||IK-S7028MT
-爱快 / iKuai|||IK企业网关-M360X|||IK-M360X
-爱快 / iKuai|||IK企业级桌面路由-Y6000G Pro|||IK-Y6000G PRO
-爱快 / iKuai|||IK千兆双频吸顶AP-X7 Plus|||IK-X7 Plus
-爱快 / iKuai|||IK二层网管型24+2光口千兆交换机|||IK-S6026-L
-爱快 / iKuai|||IK二层网管型24+4光口千兆POE交换机|||IK-S6128-L
-爱快 / iKuai|||IK企业网关-MEG100|||IK-MEG100
-爱快 / iKuai|||IK千兆双频吸顶AP-X9S|||IK-X9S
-MikroTik|||MikroTik L009UiGS-RM|||L009UiGS-RM
-MikroTik|||MikroTik RB5009UG+S+IN|||RB5009UG+S+IN
-MikroTik|||MikroTik L009UiGS-2HaxD-IN|||L009UiGS-2HaxD-IN
-MikroTik|||MikroTik CCR2116-12G-4S+|||CCR2116-12G-4S
-MikroTik|||MikroTik CCR2004-16G-2S+|||CCR2004-16G-2S+
-MikroTik|||MikroTik RB4011iGS+RM|||RB4011iGS+RM
-锐捷 / 睿易|||锐捷AP840-L|||RG-AP840-L
-锐捷 / 睿易|||锐捷RAP-2260（G）|||RG-RAP2260（G）
-锐捷 / 睿易|||锐捷EAP201|||RG-EAP201
-锐捷 / 睿易|||睿易102(F)面板AP|||
-锐捷 / 睿易|||锐捷高性能云管理路由器-6210-E|||RG-NBR6210-E
-锐捷 / 睿易|||锐捷千兆24+4光口网管型POE交换机|||RG-NBS3100-24GT4SFP-P-V2
-锐捷 / 睿易|||锐捷双频6000兆无线路由器（巡洋舰）|||RG-EW6000GXPRO
-锐捷 / 睿易|||锐捷二层云网管型28口千兆交换机（24电+4光）|||RG-NBS3100-24GT4SFP-V2
-锐捷 / 睿易|||锐捷全千兆5口POE路由器|||RG-EG105G-P-V3
-锐捷 / 睿易|||锐捷双频6000兆无线路由器（英文版）|||RG-EW6000GX
-锐捷 / 睿易|||锐捷RAP-2200（E）|||RG-RAP2200（E）
-锐捷 / 睿易|||锐捷云管理型7200M游戏路由器-7200BE|||RG-EW7200BE PRO
-锐捷 / 睿易|||锐捷AP-820L|||AP-820L（V3）
-锐捷 / 睿易|||锐捷千兆POE供电模块-AT30|||RG-POE-AT30
-UniFi|||UniFi U6-Pro|||
-UniFi|||UniFi UCK-G2-SSD|||
-Ruckus|||优科RUCKUS-R710|||RUCKUS-R710
-Ruckus|||优科RUCKUS-R610|||RUCKUS-R610
-Ruckus|||优科RUCKUS-R700|||RUCKUS-R700
-  </script>
-
   <script>
-    const raw = document.getElementById('product-data').textContent.trim();
-    function txt(v){ return String(v || '').trim(); }
-    function any(text, list){ return list.some(item => text.includes(item)); }
-    function categoryOf(brand, name, model){
-      const text = `${name} ${model}`;
-      if (any(text, ['平台'])) return '平台软件';
-      if (any(text, ['门禁','考勤'])) return '门禁/考勤';
-      if (any(text, ['控制器','Cloud Key','UCK-G2','AC6507S'])) return '无线控制器';
-      if (any(text, ['防火墙'])) return '防火墙';
-      if (any(text, ['录像机','NVR'])) return 'NVR录像机';
-      if (any(text, ['支架','鸭嘴','电源','套装','镜头','网桥','无线网卡','蓝牙适配器','有线网卡','冷靴','接口板','供电模块'])) return '配件';
-      if (any(text, ['球机','PTZ','云台','直播摄像机'])) return '球机/PTZ';
-      if (any(text, ['半球','海螺','玻璃罩'])) return text.includes('变焦') ? '变焦半球摄像机' : '半球摄像机';
-      if (any(text, ['枪机','筒型','抓拍','电梯镜头'])) return '枪机摄像机';
-      if (text.includes('交换机')) {
-        if (any(text, ['POE','PWR','供电'])) return 'POE交换机';
-        if (any(text, ['三层','核心','汇聚','万兆'])) return '三层交换机';
-        return '交换机';
-      }
-      if (brand === 'Ruckus' || brand === 'UniFi') {
-        if (any(text, ['R710','R720','高密'])) return '高密AP';
-        if (any(text, ['UCK','Cloud Key'])) return '无线控制器';
-        return '企业AP';
-      }
-      if (brand === 'H3C') {
-        if (any(text, ['WAC'])) return '无线控制器';
-        if (any(text, ['WAP712H','面板'])) return '面板AP';
-        if (any(text, ['室外'])) return '室外AP';
-        if (any(text, ['高密','WAP723'])) return '高密AP';
-        if (text.includes('交换机')) return '三层交换机';
-        return '吸顶AP';
-      }
-      if (any(text, ['吸顶AP','吸顶','RAP','AP840','AP3010','5762S','X7','X8','X9S','SW5','EAP','AP1201P'])) return '吸顶AP';
-      if (any(text, ['面板AP','面板','WM3000G','W6F','450I','302I','1202I','102(F)'])) return '面板AP';
-      if (any(text, ['室外AP','L30'])) return '室外AP';
-      if (any(text, ['高密','R710','R720','R700','R610'])) return '高密AP';
-      if (any(text, ['路由','网关','CCR','RB','L009','AR','ER','EW','Q3S','Y3000','Y6000','WDR','XDR','R476','R488'])) {
-        if (any(text, ['WDR','XDR','EW'])) return '无线路由器';
-        if (text.includes('CCR')) return '核心路由器';
-        if (any(text, ['MSG','MEG','R1200','网关'])) return '企业网关';
-        return '企业路由器';
-      }
-      return '其他设备';
-    }
-    function keyOf(category, name, model){ const tags=[category]; const full=`${name} ${model}`; ['POE','星光','全彩','白光','夜视王','人脸','高密','Wi-Fi 6','AX5400'].forEach(item=>{ if(full.includes(item)&&!tags.includes(item)) tags.push(item);}); return tags.join('，'); }
+    // 原始产品数据（保持简洁）
+    const rawProducts = [
+      {"brand": "海康", "name": "海康200万电梯镜头（2mm）", "model": "DS-2CD3525FV3-IT（2mm）", "category": "配件", "key": "配件"}, {"brand": "海康", "name": "海康200万室外枪机（4mm）", "model": "DS-IPC-B12HV3-IA/POE（4mm）", "category": "枪机摄像机", "key": "枪机摄像机，POE"}, {"brand": "海康", "name": "海康400万海螺半球1345-LA（2.8mm）", "model": "DS-2CD1345V2-LA（2.8mm）", "category": "半球摄像机", "key": "半球摄像机"}, {"brand": "海康", "name": "海康400万海螺半球1345-LA（4mm）", "model": "DS-2CD1345V2-LA（4mm）", "category": "半球摄像机", "key": "半球摄像机"}, {"brand": "海康", "name": "海康400万室外枪机1245-L（4mm）", "model": "DS-2CD1245-LA（4mm）", "category": "枪机摄像机", "key": "枪机摄像机"}, {"brand": "海康", "name": "海康400万云台枪机（星光级4mm）", "model": "DS-2CD3T46WD-LP（4mm）", "category": "球机/PTZ", "key": "球机/PTZ，星光"}, {"brand": "海康", "name": "海康400万室外枪机V3-I3（星光级4mm）", "model": "DS-2CD3T46WDV3-I3（4mm）", "category": "枪机摄像机", "key": "枪机摄像机，星光"}, {"brand": "海康", "name": "海康400万人脸变焦半球A4（7-35mm）", "model": "DS-2CD3746FWDA4/F-IZS(7-35mm)", "category": "变焦半球摄像机", "key": "变焦半球摄像机，人脸"}, {"brand": "海康", "name": "海康400万玻璃罩半球（星光级4mm）", "model": "DS-2CD3146FWD-I（4mm）", "category": "半球摄像机", "key": "半球摄像机，星光"}, {"brand": "海康", "name": "海康400万玻璃罩半球（星光级2.8mm）", "model": "DS-2CD3146FWD-I（2.8mm）", "category": "半球摄像机", "key": "半球摄像机，星光"}, {"brand": "海康", "name": "海康400万2.5寸4倍PTZ球机（2.8-12mm）", "model": "DS-2DC2D40IW-DE3 C0 S6 C（2.8-12mm）", "category": "球机/PTZ", "key": "球机/PTZ"}, {"brand": "海康", "name": "海康400万3寸4倍PTZ球机C0 T5（2.8-12mm）", "model": "IDS-2PT3D40IX-DE(C0)(T5)（2.8-12mm）", "category": "球机/PTZ", "key": "球机/PTZ"}, {"brand": "海康", "name": "海康400万3寸4倍PTZ球机C0 S6（2.8-12mm）", "model": "DS-2PT3D40IW-DE(C0)(S6)（2.8-12mm）", "category": "球机/PTZ", "key": "球机/PTZ"}, {"brand": "海康", "name": "海康400万4寸23倍PTZ球机23X S6（4.8-110mm）", "model": "DS-2PT7D40IW-DE(23X)(S6)（4.8-110mm）", "category": "球机/PTZ", "key": "球机/PTZ"}, {"brand": "海康", "name": "海康400万4寸25倍PTZ球机（海外版4.8-120mm）", "model": "DS-2DE4425W-DE3 S6 4MP / 25X（4.8-120mm）", "category": "球机/PTZ", "key": "球机/PTZ"}, {"brand": "海康", "name": "海康800万3寸4倍红外PTZ球机（2.8-12mm）", "model": "iDS-2PT3D80IX(C0)(T5)（2.8-12mm）", "category": "球机/PTZ", "key": "球机/PTZ"}, {"brand": "海康", "name": "海康威视800万电动变焦镜头（3.8-16mm）", "model": "HV3816D（3.8-16mm）", "category": "配件", "key": "配件"}, {"brand": "海康", "name": "海康800万电动变焦枪机摄像机", "model": "DS-2CD7087EWD-A D", "category": "枪机摄像机", "key": "枪机摄像机"}, {"brand": "海康", "name": "海康500万人脸变焦半球（海外版2.7-13.5mm）", "model": "DS-2CD3756G2T-IZS（2.7-13.5mm）", "category": "变焦半球摄像机", "key": "变焦半球摄像机，人脸"}, {"brand": "海康", "name": "海康400万单摄180度半球镜头（1.68mm）", "model": "DS-2CD3346P1-I（1.68mm）", "category": "配件", "key": "配件"}, {"brand": "海康", "name": "海康400万单摄180度枪机镜头（1.68mm）", "model": "DS-2CD3T46P1-I（1.68mm）", "category": "配件", "key": "配件"}, {"brand": "海康", "name": "海康400万双摄全彩180度筒型广角（2.8mm）", "model": "DS-2CD3T47FWDP2V2-L（2.8mm）", "category": "枪机摄像机", "key": "枪机摄像机，全彩"}, {"brand": "海康", "name": "海康硬盘录像机8路1盘位", "model": "DS-7808N-F1", "category": "NVR录像机", "key": "NVR录像机"}, {"brand": "海康", "name": "海康硬盘录像机8路2盘位（人脸识别）", "model": "DS-7808N-Z2/X（B）", "category": "NVR录像机", "key": "NVR录像机，人脸"}, {"brand": "海康", "name": "海康硬盘录像机16路2盘位", "model": "DS-7816N-R2", "category": "NVR录像机", "key": "NVR录像机"}, {"brand": "海康", "name": "海康硬盘录像机32路2盘位", "model": "DS-7832N-R2", "category": "NVR录像机", "key": "NVR录像机"}, {"brand": "海康", "name": "海康硬盘录像机32路4盘位", "model": "DS-7932N-R4（C）", "category": "NVR录像机", "key": "NVR录像机"}, {"brand": "海康", "name": "海康硬盘录像机32路8盘位", "model": "DS-8832N-R8-V3", "category": "NVR录像机", "key": "NVR录像机"}, {"brand": "海康", "name": "海康硬盘录像机64路8盘位", "model": "DS-8864N-R8（C）", "category": "NVR录像机", "key": "NVR录像机"}, {"brand": "海康", "name": "海康24口全千兆POE交换机（24电+2光）", "model": "DS-3E0526SP-E", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "海康", "name": "海康48口全千兆POE交换机（48电+2电+2光）", "model": "DS-3E1552SP-E", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "海康", "name": "海康人脸/考勤/门禁一体机", "model": "DS-K1T341BMW", "category": "门禁/考勤", "key": "门禁/考勤，人脸"}, {"brand": "海康", "name": "海康枪机鸭嘴支架", "model": "DS-1212ZJ", "category": "配件", "key": "配件"}, {"brand": "海康", "name": "海康壁挂球机支架", "model": "DS-1602ZJ", "category": "配件", "key": "配件"}, {"brand": "海康", "name": "海康吊装球机支架", "model": "DS-1661ZJ", "category": "配件", "key": "配件"}, {"brand": "海康", "name": "海康壁挂枪机支架", "model": "DS-701ZJ", "category": "配件", "key": "配件"}, {"brand": "海康", "name": "枪机小号加厚鸭嘴头", "model": "35*78*45mm", "category": "配件", "key": "配件"}, {"brand": "海康", "name": "海康鸭嘴伸缩支架60-120cm", "model": "60*120cm", "category": "配件", "key": "配件"}, {"brand": "海康", "name": "海康鸭嘴伸缩支架75-150cm", "model": "75*150cm", "category": "配件", "key": "配件"}, {"brand": "海康", "name": "海康800万变焦枪机(2.7-13.5mm)", "model": "DS-2CD7A87EWDV3-XZS(2.7-13.5mm)", "category": "枪机摄像机", "key": "枪机摄像机"}, {"brand": "海康", "name": "海康800万7寸23倍室外云台球机（5.9~135.7 mm）", "model": "IDS-2DC7823IW-D（5.9mm~135.7 mm）", "category": "球机/PTZ", "key": "球机/PTZ"}, {"brand": "海康", "name": "iSecure Center 综合安防管理平台", "model": "600路", "category": "平台软件", "key": "平台软件"}, {"brand": "海康", "name": "海康400万室外枪机1245-L（6mm）", "model": "DS-2CD1245-LA（6mm）", "category": "枪机摄像机", "key": "枪机摄像机"}, {"brand": "海康", "name": "16画面H.265解码键盘", "model": "NK9103C-16", "category": "其他设备", "key": "其他设备"}, {"brand": "海康", "name": "海康400万变焦枪机（2.7-13.5mm）", "model": "DS-2PT7D4TDJD", "category": "枪机摄像机", "key": "枪机摄像机"}, {"brand": "海康", "name": "海康400万人脸变焦半球（2.7-13.5mm）", "model": "DS-2CD274TDJD", "category": "变焦半球摄像机", "key": "变焦半球摄像机，人脸"}, {"brand": "海康", "name": "36画面H.265解码键盘", "model": "NK9103C-36", "category": "其他设备", "key": "其他设备"}, {"brand": "海康", "name": "海康400万4寸25倍PTZ球机（4.8-120mm）", "model": "DS-2PT7D425TDJD/PTZ", "category": "球机/PTZ", "key": "球机/PTZ"}, {"brand": "海康", "name": "海康4+1口千兆POE交换机", "model": "DS-3E0505SP-E", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "海康", "name": "海康400万室外枪机V3-L（星光级6mm）", "model": "DS-2CD3T46WDV3-L-6mm", "category": "枪机摄像机", "key": "枪机摄像机，星光"}, {"brand": "海康", "name": "海康200米电梯网桥-POE版", "model": "DS-3WF-T200P-E", "category": "配件", "key": "配件，POE"}, {"brand": "海康", "name": "海康400万室外枪机V3-L（星光级2.8mm）", "model": "DS-2CD3T46WDV3-L（2.8mm）", "category": "枪机摄像机", "key": "枪机摄像机，星光"}, {"brand": "海康", "name": "海康400万室外枪机V3-L（星光级4mm）", "model": "DS-2CD3T46WDV3-L（4mm）", "category": "枪机摄像机", "key": "枪机摄像机，星光"}, {"brand": "海康", "name": "太阳能套装60W48AH（板+电池）", "model": "WPS-S60W-177WH/ 60W48AH", "category": "配件", "key": "配件"}, {"brand": "海康", "name": "太阳能套装120W60AH（板+电池）", "model": "WPS-S120W-222WH /120W60AH", "category": "配件", "key": "配件"}, {"brand": "海康", "name": "海康400万低功耗太阳能抓拍一体机（星光4G）", "model": "DS-2XS2T46XMV3-IGLE/C05S07", "category": "枪机摄像机", "key": "枪机摄像机，星光"}, {"brand": "海康", "name": "萤石云500万家用镜头-海外版（3.6mm）", "model": "CS-TY1（PRO 5MP-W2）", "category": "配件", "key": "配件"}, {"brand": "海康", "name": "海康500万电动变焦枪机摄像机", "model": "DS-2CD5052F-(A)(P)", "category": "枪机摄像机", "key": "枪机摄像机"}, {"brand": "海康", "name": "桢田16路分屏解码器-4K", "model": "ND7016", "category": "其他设备", "key": "其他设备"}, {"brand": "海康", "name": "桢田32路分屏解码器-4K", "model": "ND7032", "category": "其他设备", "key": "其他设备"}, {"brand": "海康", "name": "海康400万4寸23倍智能红外吊装球机（4.8-110mm）", "model": "DS-2DE4423IW-DE", "category": "球机/PTZ", "key": "球机/PTZ"}, {"brand": "海康", "name": "海康400万臻全彩室外枪机（6mm）", "model": "DS-2CD3T47EWDV3-L（6mm）", "category": "枪机摄像机", "key": "枪机摄像机，全彩"}, {"brand": "海康", "name": "海康超高清8倍变焦直播摄像机-U168R Pro", "model": "DS-UCV-U168R Pro", "category": "球机/PTZ", "key": "球机/PTZ"}, {"brand": "海康", "name": "冷靴万向云台-8067", "model": "8067", "category": "配件", "key": "配件"}, {"brand": "海康", "name": "海康球机电源-36V", "model": "", "category": "配件", "key": "配件"}, {"brand": "海康", "name": "海康400万臻全彩海螺型半球（2.8mm）", "model": "DS-2CD3347WDV3-L（2.8mm）", "category": "半球摄像机", "key": "半球摄像机，全彩"}, {"brand": "海康", "name": "萤石云300万室外镜头-海外版（3.6mm）", "model": "CS-H8c（PRO 3MP）", "category": "配件", "key": "配件"}, {"brand": "海康", "name": "海康400 万智能混合光防范型网络摄像机(海外版）4mm", "model": "DS-2CD1043G2-LIUF/SL（4mm)", "category": "其他设备", "key": "其他设备"},
+      {"brand": "大华", "name": "Dahua大华400万海螺半球（白光2.8mm）", "model": "DH-T649A-IL", "category": "半球摄像机", "key": "半球摄像机，白光"}, {"brand": "大华", "name": "Dahua大华400万室外大枪机+支架（白光3.6mm）", "model": "DH-B649MA-IL", "category": "配件", "key": "配件，白光"}, {"brand": "大华", "name": "Dahua大华400万海螺半球（夜视王2.8mm）", "model": "DH-T849S-PRO", "category": "半球摄像机", "key": "半球摄像机，夜视王"}, {"brand": "大华", "name": "Dahua大华400万室外大枪机+支架（夜视王3.6mm）", "model": "DH-B849MS-PRO", "category": "配件", "key": "配件，夜视王"}, {"brand": "大华", "name": "Dahua大华硬盘录像机8路1盘位", "model": "DH-8808-M1", "category": "NVR录像机", "key": "NVR录像机"}, {"brand": "大华", "name": "Dahua大华硬盘录像机16路1盘位", "model": "DH-8816-M1", "category": "NVR录像机", "key": "NVR录像机"}, {"brand": "大华", "name": "Dahua大华硬盘录像机16路2盘位", "model": "DH-8816-P2", "category": "NVR录像机", "key": "NVR录像机"}, {"brand": "大华", "name": "Dahua大华硬盘录像机32路2盘位", "model": "DH-8832-P2", "category": "NVR录像机", "key": "NVR录像机"}, {"brand": "大华", "name": "Dahua大华硬盘录像机32路4盘位", "model": "DH-8832-P4", "category": "NVR录像机", "key": "NVR录像机"}, {"brand": "大华", "name": "Dahua大华硬盘录像机32路8盘位", "model": "DH-9832-S8", "category": "NVR录像机", "key": "NVR录像机"}, {"brand": "大华", "name": "Dahua大华硬盘录像机64路8盘位", "model": "DH-9864-S8", "category": "NVR录像机", "key": "NVR录像机"}, {"brand": "大华", "name": "Dahua大华400万海螺半球（白光3.6mm）", "model": "DH-T649A-IL-0360B", "category": "半球摄像机", "key": "半球摄像机，白光"}, {"brand": "大华", "name": "Dahua大华400万室外枪机+支架（白光2.8mm）", "model": "DH-B649A-IL-0280B", "category": "配件", "key": "配件，白光"}, {"brand": "大华", "name": "Dahua大华400万海螺半球（夜视王3.6mm）", "model": "DH-T849S-PRO-0360B", "category": "半球摄像机", "key": "半球摄像机，夜视王"}, {"brand": "大华", "name": "Dahua大华400万室外枪机+支架（夜视王2.8mm）", "model": "DH-B849S-PRO-0280B", "category": "配件", "key": "配件，夜视王"}, {"brand": "大华", "name": "Dahua大华400万室外大枪机+支架（夜视王6mm）", "model": "DH-B849MS-PRO-0600B", "category": "配件", "key": "配件，夜视王"}, {"brand": "大华", "name": "Dahua大华400万室外小枪机+支架（夜视王3.6mm）", "model": "DH-B849S-PRO", "category": "配件", "key": "配件，夜视王"}, {"brand": "大华", "name": "Dahua大华8口云管POE交换机", "model": "DH-DUOMI4010-8GT-60W", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "大华", "name": "Dahua大华16口云管POE交换机", "model": "DH-DUOMI4220-16GT-135W", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "大华", "name": "Dahua大华24口云管POE交换机", "model": "DH-DUOMI4228-24GT-240W", "category": "POE交换机", "key": "POE交换机，POE"},
+      {"brand": "TP-Link", "name": "TP双频无线路由器-AC1200", "model": "TL-WDR5620", "category": "无线路由器", "key": "无线路由器"}, {"brand": "TP-Link", "name": "TP千兆WiFi6无线路由器-AX5400", "model": "TL-XDR5480", "category": "无线路由器", "key": "无线路由器，AX5400"}, {"brand": "TP-Link", "name": "TP全千兆8口交换机", "model": "TL-SG1008D", "category": "交换机", "key": "交换机"}, {"brand": "TP-Link", "name": "TP全千兆16口云管理POE交换机", "model": "TL-SG2016MP", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "TP-Link", "name": "TP全千兆16+2光口云管理POE交换机", "model": "TL-SG2218P", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "TP-Link", "name": "TP全千兆24口云管理交换机", "model": "TL-SG2024D", "category": "交换机", "key": "交换机"}, {"brand": "TP-Link", "name": "TP全千兆24+2光口云管理POE交换机", "model": "TL-SG2226P", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "TP-Link", "name": "TP多WAN口千兆路由器（小型企业）", "model": "TL-R476G+", "category": "企业路由器", "key": "企业路由器"}, {"brand": "TP-Link", "name": "TP多WAN多LAN千兆POE路由器（小型企业）", "model": "TL-R488GPM-AC", "category": "企业路由器", "key": "企业路由器，POE"}, {"brand": "TP-Link", "name": "TP室外高功率AP", "model": "AP1201P", "category": "吸顶AP", "key": "吸顶AP"}, {"brand": "TP-Link", "name": "TP面板AP-450I（POE）", "model": "TL-AP450I-POE", "category": "面板AP", "key": "面板AP，POE"}, {"brand": "TP-Link", "name": "TP面板AP（接电）", "model": "TL-AP302I-DC", "category": "面板AP", "key": "面板AP"}, {"brand": "TP-Link", "name": "TP面板AP-1202（POE）", "model": "TL-AP1202I-POE", "category": "面板AP", "key": "面板AP，POE"}, {"brand": "TP-Link", "name": "TP全千兆有线网卡", "model": "TG-3269E", "category": "配件", "key": "配件"}, {"brand": "TP-Link", "name": "TP-USB蓝牙适配器免驱-UB240", "model": "TL-UB240", "category": "配件", "key": "配件"}, {"brand": "TP-Link", "name": "TP四核企业级万兆路由器（大型企业6220）", "model": "TL-ER6220T", "category": "企业路由器", "key": "企业路由器"}, {"brand": "TP-Link", "name": "TP-USB无线网卡-免驱版", "model": "TL-XDN6000H", "category": "配件", "key": "配件"}, {"brand": "TP-Link", "name": "TP全千兆8+2口云管理POE交换机", "model": "TL-SG2210LP", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "TP-Link", "name": "TP全千兆16口云管理交换机", "model": "TL-SG2016D", "category": "交换机", "key": "交换机"}, {"brand": "TP-Link", "name": "TP全千兆24口云管理POE交换机", "model": "TL-SG2024MP", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "TP-Link", "name": "TP全千兆4+1+1口云管理POE交换机", "model": "TL-SG2206LPF", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "TP-Link", "name": "TP全千兆5口云管理交换机", "model": "TL-SG2005", "category": "交换机", "key": "交换机"}, {"brand": "TP-Link", "name": "TP四核多WAN口万兆企业VPN路由器", "model": "TL-ER3229T GE", "category": "企业路由器", "key": "企业路由器"},
+      {"brand": "H3C", "name": "H3C企业级双频千兆吸顶AP", "model": "EWP-WAP722S-W2-FIT", "category": "吸顶AP", "key": "吸顶AP"}, {"brand": "H3C", "name": "H3C企业级双频面板AP", "model": "EWP-WAP712H-FIT", "category": "面板AP", "key": "面板AP"}, {"brand": "H3C", "name": "H3C企业级三频千兆高密AP", "model": "EWP-WAP723-W2-FIT", "category": "高密AP", "key": "高密AP，高密"}, {"brand": "H3C", "name": "H3C企业级双频室外AP", "model": "EWP-WAP712X-FIT", "category": "室外AP", "key": "室外AP"}, {"brand": "H3C", "name": "H3C企业级双频千兆吸顶AP", "model": "EWP-WAP722E-W2-FIT", "category": "吸顶AP", "key": "吸顶AP"}, {"brand": "H3C", "name": "H3C核心多业务无线控制器380-60", "model": "EWP-WAC380-60", "category": "无线控制器", "key": "无线控制器"}, {"brand": "H3C", "name": "H3C24口千兆三层网管型交换机+4光口", "model": "S5560S-28P-SI", "category": "三层交换机", "key": "三层交换机"},
+      {"brand": "华为", "name": "华为24口千兆POE交换机S1", "model": "S1730S-S24P4S-A1", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "华为", "name": "华为48口千兆交换机S5-A1", "model": "S5735S-L48T4S-A1", "category": "交换机", "key": "交换机"}, {"brand": "华为", "name": "华为48口千兆POE交换机S5", "model": "S5735S-L48P4S-A1", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "华为", "name": "华为三层核心24口POE交换机", "model": "S5731-H24P4XC", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "华为", "name": "华为AR企业级路由器（4电+4光）", "model": "AR6140-S", "category": "企业路由器", "key": "企业路由器"}, {"brand": "华为", "name": "华为吸顶AP（3010）", "model": "AP3010DN-V2", "category": "吸顶AP", "key": "吸顶AP"}, {"brand": "华为", "name": "华为下一代企业防火墙6309E", "model": "USG6309E", "category": "防火墙", "key": "防火墙"}, {"brand": "华为", "name": "华为下一代企业防火墙6315E", "model": "USG6315E", "category": "防火墙", "key": "防火墙"}, {"brand": "华为", "name": "华为24口千兆交换机S5-QA2", "model": "S5735S-L24T4S-QA2", "category": "交换机", "key": "交换机"}, {"brand": "华为", "name": "华为24口千兆POE交换机S5-A2", "model": "S5735S-L24P4S-A2", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "华为", "name": "华为24口千兆POE交换机S5-A1", "model": "S5735S-L24P4S-A1", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "华为", "name": "华为企业级核心汇聚交换机", "model": "S5735S-H24S4X-A", "category": "三层交换机", "key": "三层交换机"}, {"brand": "华为", "name": "华为三层全光汇聚交换机（24千兆光+4万兆光+8复用+2万兆堆叠）", "model": "S5735-L24ST4XE-A-V2", "category": "三层交换机", "key": "三层交换机"}, {"brand": "华为", "name": "华为三层全光汇聚交换机（48千兆光+4万兆光）", "model": "S5735-L48S4XE-A-V2", "category": "三层交换机", "key": "三层交换机"}, {"brand": "华为", "name": "华为三层全光汇聚交换机（24千兆光+4万兆光+8复用）", "model": "S5735S-L24ST4X-A3", "category": "三层交换机", "key": "三层交换机"}, {"brand": "华为", "name": "华为AR企业级路由器（8电+1万兆光）", "model": "S6730S-S24X6Q-A", "category": "企业路由器", "key": "企业路由器"}, {"brand": "华为", "name": "华为48口万兆光接口板", "model": "LSS7X48SX6SO", "category": "配件", "key": "配件"}, {"brand": "华为", "name": "华为无线接入控制器-AC6507S", "model": "AC6507S", "category": "无线控制器", "key": "无线控制器"}, {"brand": "华为", "name": "华为千兆双频吸顶AP-5762S", "model": "AirEngine 5762S-12", "category": "吸顶AP", "key": "吸顶AP"},
+      {"brand": "爱快", "name": "IK企业网关-MEG200", "model": "IK-MEG200", "category": "企业网关", "key": "企业网关"}, {"brand": "爱快", "name": "IK企业级桌面路由-Q3S", "model": "IK-Q3S", "category": "企业路由器", "key": "企业路由器"}, {"brand": "爱快", "name": "IK企业网关-MSG100", "model": "IK-MSG100", "category": "企业网关", "key": "企业网关"}, {"brand": "爱快", "name": "IK企业网关-MSG200", "model": "IK-MSG200", "category": "企业网关", "key": "企业网关"}, {"brand": "爱快", "name": "IK企业网关-MSG300", "model": "IK-MSG300", "category": "企业网关", "key": "企业网关"}, {"brand": "爱快", "name": "IK企业网关-MSG400", "model": "IK-MSG400", "category": "企业网关", "key": "企业网关"}, {"brand": "爱快", "name": "IK企业网关-MSG460X", "model": "IK-MSG460X", "category": "企业网关", "key": "企业网关"}, {"brand": "爱快", "name": "IK企业网关-MSG560X", "model": "IK-MSG560X", "category": "企业网关", "key": "企业网关"}, {"brand": "爱快", "name": "IK双频千兆面板AP-W6F", "model": "IK-W6F", "category": "面板AP", "key": "面板AP"}, {"brand": "爱快", "name": "IK千兆双频吸顶AP-SW5", "model": "IK-SW5", "category": "吸顶AP", "key": "吸顶AP"}, {"brand": "爱快", "name": "IK千兆双频吸顶AP-X8", "model": "IK-X8", "category": "吸顶AP", "key": "吸顶AP"}, {"brand": "爱快", "name": "IK多业务企业路由器M100", "model": "IK-M100", "category": "企业路由器", "key": "企业路由器"}, {"brand": "爱快", "name": "IK多业务企业路由器M200", "model": "IK-M200", "category": "企业路由器", "key": "企业路由器"}, {"brand": "爱快", "name": "IK千兆双频室外AP-L30", "model": "IK-L30", "category": "室外AP", "key": "室外AP"}, {"brand": "爱快", "name": "IK千兆双频面板AP-WM3000G", "model": "IK-WM3000G-P", "category": "面板AP", "key": "面板AP"}, {"brand": "爱快", "name": "IK千兆8口交换机", "model": "IK-ST08G", "category": "交换机", "key": "交换机"}, {"brand": "爱快", "name": "IK百兆16+2+1口POE交换机（带1光口）", "model": "IK-S2119D-E", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "爱快", "name": "IK百兆24+2+1口POE交换机（带1光口）", "model": "IK-S2127D-E", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "爱快", "name": "IK千兆24+2+2口POE交换机（带2光口）", "model": "IK-S3128D-E", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "爱快", "name": "IK三层网管型48口千兆交换机（48电+4万兆光）", "model": "IK-J7052", "category": "三层交换机", "key": "三层交换机"}, {"brand": "爱快", "name": "IK三层网管型12口万兆全光交换机", "model": "IK-S7012XS", "category": "三层交换机", "key": "三层交换机"}, {"brand": "爱快", "name": "IK企业级POE一体化路由器-M10S", "model": "IK-M10S", "category": "企业路由器", "key": "企业路由器，POE"}, {"brand": "爱快", "name": "IK企业网关-R1200", "model": "IK-R1200", "category": "企业网关", "key": "企业网关"}, {"brand": "爱快", "name": "IK企业级桌面路由-Y3000G Pro", "model": "IK-Y3000G Pro", "category": "企业路由器", "key": "企业路由器"}, {"brand": "爱快", "name": "IK二层网管型24口千兆交换机（24电+4光）", "model": "IK-J7028", "category": "交换机", "key": "交换机"}, {"brand": "爱快", "name": "IK三层网管型24口2.5G交换机（24个2.5G电+4万兆光）", "model": "IK-S7028MT", "category": "三层交换机", "key": "三层交换机"}, {"brand": "爱快", "name": "IK企业网关-M360X", "model": "IK-M360X", "category": "企业网关", "key": "企业网关"}, {"brand": "爱快", "name": "IK企业级桌面路由-Y6000G Pro", "model": "IK-Y6000G PRO", "category": "企业路由器", "key": "企业路由器"}, {"brand": "爱快", "name": "IK千兆双频吸顶AP-X7 Plus", "model": "IK-X7 Plus", "category": "吸顶AP", "key": "吸顶AP"}, {"brand": "爱快", "name": "IK二层网管型24+2光口千兆交换机", "model": "IK-S6026-L", "category": "交换机", "key": "交换机"}, {"brand": "爱快", "name": "IK二层网管型24+4光口千兆POE交换机", "model": "IK-S6128-L", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "爱快", "name": "IK企业网关-MEG100", "model": "IK-MEG100", "category": "企业网关", "key": "企业网关"}, {"brand": "爱快", "name": "IK千兆双频吸顶AP-X9S", "model": "IK-X9S", "category": "吸顶AP", "key": "吸顶AP"},
+      {"brand": "MikroTik", "name": "MikroTik L009UiGS-RM", "model": "L009UiGS-RM", "category": "企业路由器", "key": "企业路由器"}, {"brand": "MikroTik", "name": "MikroTik RB5009UG+S+IN", "model": "RB5009UG+S+IN", "category": "企业路由器", "key": "企业路由器"}, {"brand": "MikroTik", "name": "MikroTik L009UiGS-2HaxD-IN", "model": "L009UiGS-2HaxD-IN", "category": "企业路由器", "key": "企业路由器"}, {"brand": "MikroTik", "name": "MikroTik CCR2116-12G-4S+", "model": "CCR2116-12G-4S", "category": "核心路由器", "key": "核心路由器"}, {"brand": "MikroTik", "name": "MikroTik CCR2004-16G-2S+", "model": "CCR2004-16G-2S+", "category": "核心路由器", "key": "核心路由器"}, {"brand": "MikroTik", "name": "MikroTik RB4011iGS+RM", "model": "RB4011iGS+RM", "category": "企业路由器", "key": "企业路由器"},
+      {"brand": "锐捷", "name": "锐捷AP840-L", "model": "RG-AP840-L", "category": "吸顶AP", "key": "吸顶AP"}, {"brand": "锐捷", "name": "锐捷RAP-2260（G）", "model": "RG-RAP2260（G）", "category": "吸顶AP", "key": "吸顶AP"}, {"brand": "锐捷", "name": "锐捷EAP201", "model": "RG-EAP201", "category": "吸顶AP", "key": "吸顶AP"}, {"brand": "锐捷", "name": "睿易102(F)面板AP", "model": "", "category": "面板AP", "key": "面板AP"}, {"brand": "锐捷", "name": "锐捷高性能云管理路由器-6210-E", "model": "RG-NBR6210-E", "category": "企业路由器", "key": "企业路由器"}, {"brand": "锐捷", "name": "锐捷千兆24+4光口网管型POE交换机", "model": "RG-NBS3100-24GT4SFP-P-V2", "category": "POE交换机", "key": "POE交换机，POE"}, {"brand": "锐捷", "name": "锐捷双频6000兆无线路由器（巡洋舰）", "model": "RG-EW6000GXPRO", "category": "无线路由器", "key": "无线路由器"}, {"brand": "锐捷", "name": "锐捷二层云网管型28口千兆交换机（24电+4光）", "model": "RG-NBS3100-24GT4SFP-V2", "category": "交换机", "key": "交换机"}, {"brand": "锐捷", "name": "锐捷全千兆5口POE路由器", "model": "RG-EG105G-P-V3", "category": "企业路由器", "key": "企业路由器，POE"}, {"brand": "锐捷", "name": "锐捷双频6000兆无线路由器（英文版）", "model": "RG-EW6000GX", "category": "无线路由器", "key": "无线路由器"}, {"brand": "锐捷", "name": "锐捷RAP-2200（E）", "model": "RG-RAP2200（E）", "category": "吸顶AP", "key": "吸顶AP"}, {"brand": "锐捷", "name": "锐捷云管理型7200M游戏路由器-7200BE", "model": "RG-EW7200BE PRO", "category": "无线路由器", "key": "无线路由器"}, {"brand": "锐捷", "name": "锐捷AP-820L", "model": "AP-820L（V3）", "category": "其他设备", "key": "其他设备"}, {"brand": "锐捷", "name": "锐捷千兆POE供电模块-AT30", "model": "RG-POE-AT30", "category": "配件", "key": "配件，POE"},
+      {"brand": "UniFi", "name": "UniFi U6-Pro", "model": "", "category": "企业AP", "key": "企业AP"}, {"brand": "UniFi", "name": "UniFi UCK-G2-SSD", "model": "", "category": "无线控制器", "key": "无线控制器"},
+      {"brand": "Ruckus", "name": "优科RUCKUS-R710", "model": "RUCKUS-R710", "category": "高密AP", "key": "高密AP"}, {"brand": "Ruckus", "name": "优科RUCKUS-R610", "model": "RUCKUS-R610", "category": "无线控制器", "key": "无线控制器"}, {"brand": "Ruckus", "name": "优科RUCKUS-R700", "model": "RUCKUS-R700", "category": "无线控制器", "key": "无线控制器"}
+    ];
 
-    const products = raw.split('
-').map(line => txt(line)).filter(Boolean).map((line, idx) => {
-      const parts = line.split('|||').map(item => txt(item));
-      if (parts.length < 2) throw new Error(`第 ${idx + 1} 行产品数据格式错误`);
-      const brand = parts[0], name = parts[1], model = parts[2] || '';
-      const category = categoryOf(brand, name, model), key = keyOf(category, name, model);
-      return { brand, name, model, category, key };
+    // 统一品牌名称
+    const products = rawProducts.map(p => {
+      let brand = p.brand;
+      if (brand === "爱快 / iKuai") brand = "爱快";
+      if (brand === "锐捷 / 睿易") brand = "锐捷";
+      return { ...p, brand };
     });
 
+    // 增强培训重点的函数：根据品牌、分类、原key生成更详细的描述
+    function getEnhancedTrainingKey(product) {
+      const { brand, category, key } = product;
+      const lowerKey = key.toLowerCase();
+      const isPoE = lowerKey.includes('poe');
+      const isStarlight = lowerKey.includes('星光');
+      const isFullColor = lowerKey.includes('全彩');
+      const isNightKing = lowerKey.includes('夜视王');
+      const isWhiteLight = lowerKey.includes('白光');
+      const isFace = lowerKey.includes('人脸');
+      
+      // 监控类
+      if (category === '半球摄像机') {
+        if (isNightKing) return `室内半球，夜视王暗光增强，推荐搭配NVR+POE交换机，适用于酒店/办公室暗光区域`;
+        if (isFullColor) return `400万臻全彩半球，夜晚彩色成像，室内前台/大厅首选，需POE供电`;
+        if (isWhiteLight) return `白光半球，夜晚补光清晰，适合室内走廊/前台，配合NVR存储`;
+        if (isStarlight) return `星光级半球，低照度效果好，室内外通用，推荐搭配POE交换机`;
+        return `室内半球摄像机，吸顶安装，适合前台/走廊/电梯口，建议配合NVR使用`;
+      }
+      if (category === '枪机摄像机') {
+        if (isFullColor) return `400万全彩枪机，夜晚彩色画面，室外围墙/门口推荐，需POE供电`;
+        if (isStarlight) return `星光级枪机，夜视能力出色，适合停车场/院子，建议搭配千兆POE交换机`;
+        if (isWhiteLight) return `白光枪机，夜间补光，适合门口/通道，搭配NVR录像`;
+        if (lowerKey.includes('太阳能')) return `太阳能4G星光枪机，无需布线，适用于农村/工地/无电区`;
+        return `室外枪机，防水防尘，适合大门/围墙/车道，根据距离选4mm/6mm镜头`;
+      }
+      if (category === '球机/PTZ') {
+        if (lowerKey.includes('倍')) return `${product.name.match(/\d+倍/)?.[0] || '多倍'}变焦球机，支持云台旋转，适合广场/园区大范围监控`;
+        return `PTZ球机，可远程控制旋转变焦，适用于停车场/园区/工地，需配合NVR`;
+      }
+      if (category === 'NVR录像机') {
+        const match = product.name.match(/(\d+)路/);
+        const channel = match ? match[1] : '多';
+        if (lowerKey.includes('人脸')) return `${channel}路人脸识别NVR，支持智能分析，推荐搭配海康人脸摄像机`;
+        return `${channel}路NVR，盘位数决定存储天数，需搭配监控硬盘使用`;
+      }
+      if (category === 'POE交换机') {
+        if (brand === '海康' || brand === '大华') return `${product.name}，标准PoE供电，适合监控项目集中供电，注意总功率匹配`;
+        if (brand === 'TP-Link' || brand === '爱快') return `${product.name}，云管理PoE交换机，适合AP/监控混合部署，支持远程维护`;
+        return `${product.name}，PoE交换机，给AP/摄像机供电，注意端口数和功率`;
+      }
+      if (category === '交换机') {
+        if (brand === '华为' || brand === 'H3C') return `${product.name}，企业级交换机，根据端口速率和网管功能选型，支持VLAN/堆叠`;
+        return `${product.name}，基础接入交换机，即插即用，适合小型办公室/监控汇聚`;
+      }
+      if (category === '企业路由器' || category === '企业网关') {
+        if (brand === 'MikroTik') return `${product.name}，RouterOS系统，功能强大，适合多WAN/分流/VPN/策略路由场景`;
+        if (brand === '华为') return `${product.name}，企业级路由/网关，高性能转发，支持VPN/AC管理，适用于中大型网络`;
+        if (brand === '爱快') return `${product.name}，爱快企业网关，流控/多线负载/行为管理，酒店/办公首选`;
+        if (brand === 'TP-Link') return `${product.name}，多WAN企业路由，支持VPN/行为管理，性价比高，适合中小企业出口`;
+        return `${product.name}，企业级路由器，做出口上网、限速、认证、VPN，根据带机量选型`;
+      }
+      if (category === '吸顶AP') {
+        if (brand === 'UniFi') return `UniFi U6系列吸顶AP，统一管理，界面美观，支持PoE，适合办公室/门店`;
+        if (brand === '锐捷') return `锐捷吸顶AP，支持云管理，高并发稳定，适合酒店/办公区域`;
+        if (brand === '爱快') return `爱快吸顶AP，配合爱快网关实现AC管理，无缝漫游，性价比高`;
+        return `双频吸顶AP，推荐PoE供电，适合大厅/走廊/开放区域，注意覆盖半径`;
+      }
+      if (category === '面板AP') {
+        if (brand === '爱快') return `爱快面板AP，墙面安装，PoE供电，适合酒店客房/宿舍独立覆盖`;
+        if (brand === 'TP-Link') return `TP-Link面板AP，美观隐蔽，适合酒店/民宿，需配合PoE交换机`;
+        return `面板AP，替换墙上网络面板，每个房间独立Wi-Fi，推荐PoE供电`;
+      }
+      if (category === '无线路由器') {
+        if (lowerKey.includes('ax5400')) return `Wi-Fi 6无线路由，AX5400高速率，适合家庭/小型办公升级`;
+        if (brand === '锐捷') return `锐捷家用/轻商用路由，支持Wi-Fi 6，双频千兆，适合家庭/门店`;
+        return `双频无线路由器，AC1200/千兆端口，家庭/小办公室基础网络`;
+      }
+      if (category === '配件') {
+        if (lowerKey.includes('支架')) return `安装支架，适配相应型号摄像机/球机，确保牢固/角度可调`;
+        if (lowerKey.includes('网卡')) return `有线/无线网卡，为台式机增加网络接口，即插即用`;
+        if (lowerKey.includes('电源')) return `设备专用电源，注意电压/电流匹配`;
+        return `安装辅材/配件，按需选配，确保项目完整`;
+      }
+      if (category === '防火墙') return `下一代防火墙，提供边界安全、入侵防御、VPN，适合对安全要求高的企业`;
+      if (category === '无线控制器') return `无线控制器，集中管理多台AP，实现漫游/配置下发，适合酒店/办公多AP场景`;
+      if (category === '三层交换机') return `三层交换机，支持VLAN间路由，适合核心/汇聚层，需专业配置`;
+      
+      // 默认返回原key或通用描述
+      return key || '请参考具体参数和项目需求选型';
+    }
+
+    // DOM 元素
     const productBody = document.getElementById('productBody');
     const searchInput = document.getElementById('searchInput');
     const brandFilter = document.getElementById('brandFilter');
     const categoryFilter = document.getElementById('categoryFilter');
+    const resetBtn = document.getElementById('resetFilterBtn');
     const catalogMeta = document.getElementById('catalogMeta');
     const summaryRow = document.getElementById('summaryRow');
+    const sidebar = document.getElementById('sidebar');
+    const openBtn = document.getElementById('openSidebarBtn');
+    const closeBtn = document.getElementById('closeSidebarBtn');
 
-    function fillFilters(){
-      [...new Set(products.map(p => p.brand))].sort().forEach(brand => { const o=document.createElement('option'); o.value=brand; o.textContent=brand; brandFilter.appendChild(o); });
-      [...new Set(products.map(p => p.category))].sort().forEach(category => { const o=document.createElement('option'); o.value=category; o.textContent=category; categoryFilter.appendChild(o); });
-    }
-    function updateSummary(filtered){
-      const map={};
-      filtered.forEach(item=>{ map[item.brand]=(map[item.brand]||0)+1; });
-      const top=Object.entries(map).sort((a,b)=>b[1]-a[1]).slice(0,6);
-      catalogMeta.textContent=`当前产品 ${products.length} 条，筛选后 ${filtered.length} 条`;
-      summaryRow.innerHTML=top.map(([brand,count])=>`<span class="summary-pill">${brand}：${count}</span>`).join('');
-    }
-    function renderTable(){
-      const keyword=searchInput.value.trim().toLowerCase();
-      const selectedBrand=brandFilter.value;
-      const selectedCategory=categoryFilter.value;
-      const filtered=products.filter(product=>{
-        const haystack=`${product.brand} ${product.name} ${product.model} ${product.category} ${product.key}`.toLowerCase();
-        return (keyword===''||haystack.includes(keyword)) && (selectedBrand==='全部'||product.brand===selectedBrand) && (selectedCategory==='全部'||product.category===selectedCategory);
-      });
-      updateSummary(filtered);
-      if(!filtered.length){
-        productBody.innerHTML='<tr><td colspan="6" style="text-align:center;color:#6b7280;padding:30px">没有找到符合条件的产品，请换个关键词试试。</td></tr>';
-        return;
-      }
-      productBody.innerHTML=filtered.map(product=>`<tr><td>${product.brand}</td><td><strong>${product.name}</strong></td><td>${product.model}</td><td>${product.category}</td><td><span class="status-new">全新</span></td><td>${product.key}</td></tr>`).join('');
+    // 移动端侧边栏折叠
+    if (openBtn && closeBtn && sidebar) {
+      openBtn.addEventListener('click', () => { sidebar.classList.remove('collapsed'); openBtn.style.display = 'none'; });
+      closeBtn.addEventListener('click', () => { sidebar.classList.add('collapsed'); openBtn.style.display = 'inline-block'; });
+      const mediaQuery = window.matchMedia('(max-width: 1200px)');
+      const handleResize = (e) => {
+        if (!e.matches) { sidebar.classList.remove('collapsed'); openBtn.style.display = 'none'; }
+        else { if (sidebar.classList.contains('collapsed')) openBtn.style.display = 'inline-block'; else openBtn.style.display = 'none'; }
+      };
+      mediaQuery.addListener(handleResize);
+      handleResize(mediaQuery);
     }
 
-    try {
-      if(!products.length) throw new Error('没有读取到产品数据');
-      fillFilters();
+    function fillFilters() {
+      const brands = [...new Set(products.map(p => p.brand))].sort();
+      brands.forEach(b => { const o = document.createElement('option'); o.value = b; o.textContent = b; brandFilter.appendChild(o); });
+      const categories = [...new Set(products.map(p => p.category))].sort();
+      categories.forEach(c => { const o = document.createElement('option'); o.value = c; o.textContent = c; categoryFilter.appendChild(o); });
+    }
+
+    function updateSummary(filtered) {
+      const map = {};
+      filtered.forEach(item => { map[item.brand] = (map[item.brand] || 0) + 1; });
+      const top = Object.entries(map).sort((a,b)=>b[1]-a[1]).slice(0,6);
+      catalogMeta.textContent = `当前产品 ${products.length} 条，筛选后 ${filtered.length} 条`;
+      summaryRow.innerHTML = top.map(([brand,count]) => `<span class="summary-pill">${brand}：${count}</span>`).join('');
+    }
+
+    let debounceTimer;
+    function renderTable() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        const keyword = searchInput.value.trim().toLowerCase();
+        const selectedBrand = brandFilter.value;
+        const selectedCategory = categoryFilter.value;
+        const filtered = products.filter(product => {
+          const haystack = `${product.brand} ${product.name} ${product.model} ${product.category} ${product.key}`.toLowerCase();
+          return (keyword === '' || haystack.includes(keyword)) &&
+                 (selectedBrand === '全部' || product.brand === selectedBrand) &&
+                 (selectedCategory === '全部' || product.category === selectedCategory);
+        });
+        updateSummary(filtered);
+        if (!filtered.length) {
+          productBody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#6b7280;padding:30px">没有找到符合条件的产品，请换个关键词试试。</td></tr>';
+          return;
+        }
+        productBody.innerHTML = filtered.map(product => `<tr>
+          <td>${product.brand}</td>
+          <td><strong>${product.name}</strong></td>
+          <td>${product.model}</td>
+          <td>${product.category}</td>
+          <td>${getEnhancedTrainingKey(product)}</td>
+        </tr>`).join('');
+      }, 200);
+    }
+
+    function resetFilters() {
+      searchInput.value = '';
+      brandFilter.value = '全部';
+      categoryFilter.value = '全部';
       renderTable();
-      [searchInput, brandFilter, categoryFilter].forEach(el => { el.addEventListener('input', renderTable); el.addEventListener('change', renderTable); });
-    } catch(error){
-      console.error(error);
-      catalogMeta.textContent='初始化失败';
-      productBody.innerHTML=`<tr><td colspan="6" style="text-align:center;color:#b91c1c;padding:30px">页面初始化失败：${String(error.message||error)}</td></tr>`;
     }
+
+    fillFilters();
+    renderTable();
+    searchInput.addEventListener('input', renderTable);
+    brandFilter.addEventListener('change', renderTable);
+    categoryFilter.addEventListener('change', renderTable);
+    resetBtn.addEventListener('click', resetFilters);
   </script>
 </body>
 </html>
