@@ -409,6 +409,9 @@ Ruckus|||优科RUCKUS-R700|||RUCKUS-R700
   </script>
 
   <script>
+    // 立即设置初始状态
+    document.getElementById('catalogMeta').textContent = '⏳ 正在初始化产品库...';
+    
     const raw = document.getElementById('product-data').textContent.trim();
     function txt(v){ return String(v || '').trim(); }
     function any(text, list){ return list.some(item => text.includes(item)); }
