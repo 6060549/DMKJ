@@ -538,16 +538,13 @@ Ruckus|||优科RUCKUS-R700|||RUCKUS-R700
       if(!products.length) throw new Error('没有读取到产品数据');
       console.log(`✅ 成功加载 ${products.length} 条产品`);
       
-      // 直接显示前10个产品
-      const first10 = products.slice(0, 10);
-      productBody.innerHTML = first10.map(product => 
-        `<tr><td>${product.brand}</td><td><strong>${product.name}</strong></td><td>${product.model}</td><td>${product.category}</td><td><span class="status-new">全新</span></td><td>${product.key}</td></tr>`
-      ).join('');
+      // 最简单的显示方式
+      productBody.innerHTML = '<tr><td>海康</td><td><strong>测试产品</strong></td><td>TEST-001</td><td>测试分类</td><td><span class="status-new">全新</span></td><td>测试标签</td></tr>';
       
-      console.log(`✅ 显示了 ${first10.length} 条产品`);
+      console.log('✅ 手动插入了测试行');
       
       catalogMeta.style.color='#16a34a';
-      catalogMeta.textContent=`✅ 初始化完成！显示前10条，共 ${products.length} 条产品`;
+      catalogMeta.textContent=`✅ 测试完成！共 ${products.length} 条产品数据`;
     } catch(error){
       console.error('❌ 初始化错误:', error);
       console.error('❌ 错误详情:', error.stack);
