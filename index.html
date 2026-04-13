@@ -538,20 +538,16 @@ Ruckus|||优科RUCKUS-R700|||RUCKUS-R700
       if(!products.length) throw new Error('没有读取到产品数据');
       console.log(`✅ 成功加载 ${products.length} 条产品`);
       
-      console.log('🔍 初始化筛选器...');
-      fillFilters();
-      console.log(`✅ 筛选器已初始化`);
+      // 直接显示前10个产品
+      const first10 = products.slice(0, 10);
+      productBody.innerHTML = first10.map(product => 
+        `<tr><td>${product.brand}</td><td><strong>${product.name}</strong></td><td>${product.model}</td><td>${product.category}</td><td><span class="status-new">全新</span></td><td>${product.key}</td></tr>`
+      ).join('');
       
-      console.log('🔍 渲染产品表格...');
-      renderTable();
-      console.log(`✅ 产品表格已渲染`);
-      
-      console.log('🔍 绑定事件监听器...');
-      [searchInput, brandFilter, categoryFilter].forEach(el => { el.addEventListener('input', renderTable); el.addEventListener('change', renderTable); });
-      console.log(`✅ 事件监听器已绑定`);
+      console.log(`✅ 显示了 ${first10.length} 条产品`);
       
       catalogMeta.style.color='#16a34a';
-      catalogMeta.textContent=`✅ 初始化完成！当前产品 ${products.length} 条`;
+      catalogMeta.textContent=`✅ 初始化完成！显示前10条，共 ${products.length} 条产品`;
     } catch(error){
       console.error('❌ 初始化错误:', error);
       console.error('❌ 错误详情:', error.stack);
