@@ -415,8 +415,32 @@ Ruckus|||优科RUCKUS-R700|||RUCKUS-R700
     });
     
     function initProductCatalog() {
+      console.log('🔍 DOMContentLoaded 触发，开始初始化...');
+      
+      // 检查DOM元素是否存在
+      const catalogMeta = document.getElementById('catalogMeta');
+      const productBody = document.getElementById('productBody');
+      const searchInput = document.getElementById('searchInput');
+      const brandFilter = document.getElementById('brandFilter');
+      const categoryFilter = document.getElementById('categoryFilter');
+      const productData = document.getElementById('product-data');
+      
+      console.log('🔍 检查DOM元素:', {
+        catalogMeta: !!catalogMeta,
+        productBody: !!productBody,
+        searchInput: !!searchInput,
+        brandFilter: !!brandFilter,
+        categoryFilter: !!categoryFilter,
+        productData: !!productData
+      });
+      
+      if (!catalogMeta || !productBody || !searchInput || !brandFilter || !categoryFilter || !productData) {
+        console.error('❌ 缺少必要的DOM元素');
+        return;
+      }
+      
       try {
-        document.getElementById('catalogMeta').textContent = '⏳ 正在初始化产品库...';
+        catalogMeta.textContent = '⏳ 正在初始化产品库...';
         console.log('🔍 开始初始化...');
       } catch(e) {
         console.error('❌ 无法设置初始状态:', e);
