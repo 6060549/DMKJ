@@ -409,17 +409,22 @@ Ruckus|||优科RUCKUS-R700|||RUCKUS-R700
   </script>
 
   <script>
-    // 立即设置初始状态
-    try {
-      document.getElementById('catalogMeta').textContent = '⏳ 正在初始化产品库...';
-      console.log('🔍 开始初始化...');
-    } catch(e) {
-      console.error('❌ 无法设置初始状态:', e);
-    }
+    // 等待DOM加载完成
+    document.addEventListener('DOMContentLoaded', function() {
+      initProductCatalog();
+    });
     
-    const raw = document.getElementById('product-data').textContent.trim();
-    console.log('📊 原始数据长度:', raw.length);
-    function txt(v){ return String(v || '').trim(); }
+    function initProductCatalog() {
+      try {
+        document.getElementById('catalogMeta').textContent = '⏳ 正在初始化产品库...';
+        console.log('🔍 开始初始化...');
+      } catch(e) {
+        console.error('❌ 无法设置初始状态:', e);
+      }
+      
+      const raw = document.getElementById('product-data').textContent.trim();
+      console.log('📊 原始数据长度:', raw.length);
+      function txt(v){ return String(v || '').trim(); }
     function any(text, list){ return list.some(item => text.includes(item)); }
     function categoryOf(brand, name, model){
       const text = `${name} ${model}`;
