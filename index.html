@@ -412,6 +412,10 @@ Ruckus|||优科RUCKUS-R700|||RUCKUS-R700
 
   <script>
     // 完整版JavaScript - 显示所有产品
+    document.addEventListener('DOMContentLoaded', function() {
+      initProductCatalog();
+    });
+    
     function initProductCatalog() {
       console.log('开始初始化产品库...');
       
@@ -468,9 +472,6 @@ Ruckus|||优科RUCKUS-R700|||RUCKUS-R700
         }
       }
     }
-    
-    // 立即执行
-    initProductCatalog();
   </script>
 </body>
 </html>
