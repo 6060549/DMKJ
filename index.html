@@ -500,14 +500,22 @@ Ruckus|||优科RUCKUS-R700|||RUCKUS-R700
 
     try {
       if(!products.length) throw new Error('没有读取到产品数据');
+      console.log(`✅ 成功加载 ${products.length} 条产品`);
       fillFilters();
+      console.log(`✅ 筛选器已初始化`);
       renderTable();
+      console.log(`✅ 产品表格已渲染`);
       [searchInput, brandFilter, categoryFilter].forEach(el => { el.addEventListener('input', renderTable); el.addEventListener('change', renderTable); });
+      catalogMeta.style.color='#16a34a';
     } catch(error){
-      console.error(error);
-      catalogMeta.textContent='初始化失败';
+      console.error('❌ 初始化错误:', error);
+      catalogMeta.textContent='❌ 初始化失败: ' + String(error.message||error);
+      catalogMeta.style.color='#dc2626';
       productBody.innerHTML=`<tr><td colspan="6" style="text-align:center;color:#b91c1c;padding:30px">页面初始化失败：${String(error.message||error)}</td></tr>`;
     }
+    // 强制显示调试信息
+    console.log('products:', products.length, 'productBody:', productBody);
+    console.log('searchInput:', searchInput, 'brandFilter:', brandFilter);
   </script>
 </body>
 </html>
