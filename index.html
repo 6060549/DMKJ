@@ -419,7 +419,8 @@ Ruckus|||优科RUCKUS-R700|||RUCKUS-R700
       const searchInput = document.getElementById('searchInput');
       const brandFilter = document.getElementById('brandFilter');
       const categoryFilter = document.getElementById('categoryFilter');
-      const productData = document.getElementById('product-data');
+      const catalogMeta = document.getElementById('catalogMeta');
+      const summaryRow = document.getElementById('summaryRow');
       
       console.log('🔍 检查DOM元素:', {
         catalogMeta: !!catalogMeta,
@@ -498,13 +499,6 @@ Ruckus|||优科RUCKUS-R700|||RUCKUS-R700
       const category = categoryOf(brand, name, model), key = keyOf(category, name, model);
       return { brand, name, model, category, key };
     });
-
-    const productBody = document.getElementById('productBody');
-    const searchInput = document.getElementById('searchInput');
-    const brandFilter = document.getElementById('brandFilter');
-    const categoryFilter = document.getElementById('categoryFilter');
-    const catalogMeta = document.getElementById('catalogMeta');
-    const summaryRow = document.getElementById('summaryRow');
 
     function fillFilters(){
       [...new Set(products.map(p => p.brand))].sort().forEach(brand => { const o=document.createElement('option'); o.value=brand; o.textContent=brand; brandFilter.appendChild(o); });
