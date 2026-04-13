@@ -410,9 +410,15 @@ Ruckus|||优科RUCKUS-R700|||RUCKUS-R700
 
   <script>
     // 立即设置初始状态
-    document.getElementById('catalogMeta').textContent = '⏳ 正在初始化产品库...';
+    try {
+      document.getElementById('catalogMeta').textContent = '⏳ 正在初始化产品库...';
+      console.log('🔍 开始初始化...');
+    } catch(e) {
+      console.error('❌ 无法设置初始状态:', e);
+    }
     
     const raw = document.getElementById('product-data').textContent.trim();
+    console.log('📊 原始数据长度:', raw.length);
     function txt(v){ return String(v || '').trim(); }
     function any(text, list){ return list.some(item => text.includes(item)); }
     function categoryOf(brand, name, model){
@@ -502,16 +508,27 @@ Ruckus|||优科RUCKUS-R700|||RUCKUS-R700
     }
 
     try {
+      console.log('🔍 检查产品数据...');
       if(!products.length) throw new Error('没有读取到产品数据');
       console.log(`✅ 成功加载 ${products.length} 条产品`);
+      
+      console.log('🔍 初始化筛选器...');
       fillFilters();
       console.log(`✅ 筛选器已初始化`);
+      
+      console.log('🔍 渲染产品表格...');
       renderTable();
       console.log(`✅ 产品表格已渲染`);
+      
+      console.log('🔍 绑定事件监听器...');
       [searchInput, brandFilter, categoryFilter].forEach(el => { el.addEventListener('input', renderTable); el.addEventListener('change', renderTable); });
+      console.log(`✅ 事件监听器已绑定`);
+      
       catalogMeta.style.color='#16a34a';
+      catalogMeta.textContent=`✅ 初始化完成！当前产品 ${products.length} 条`;
     } catch(error){
       console.error('❌ 初始化错误:', error);
+      console.error('❌ 错误详情:', error.stack);
       catalogMeta.textContent='❌ 初始化失败: ' + String(error.message||error);
       catalogMeta.style.color='#dc2626';
       productBody.innerHTML=`<tr><td colspan="6" style="text-align:center;color:#b91c1c;padding:30px">页面初始化失败：${String(error.message||error)}</td></tr>`;
