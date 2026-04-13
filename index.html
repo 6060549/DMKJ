@@ -409,13 +409,9 @@ Ruckus|||优科RUCKUS-R700|||RUCKUS-R700
   </script>
 
   <script>
-    // 等待DOM加载完成
-    document.addEventListener('DOMContentLoaded', function() {
-      initProductCatalog();
-    });
-    
+    // 直接执行，不等待DOMContentLoaded
     function initProductCatalog() {
-      console.log('🔍 DOMContentLoaded 触发，开始初始化...');
+      console.log('🔍 直接执行初始化...');
       
       // 检查DOM元素是否存在
       const catalogMeta = document.getElementById('catalogMeta');
@@ -435,7 +431,8 @@ Ruckus|||优科RUCKUS-R700|||RUCKUS-R700
       });
       
       if (!catalogMeta || !productBody || !searchInput || !brandFilter || !categoryFilter || !productData) {
-        console.error('❌ 缺少必要的DOM元素');
+        console.error('❌ 缺少必要的DOM元素，稍后重试...');
+        setTimeout(initProductCatalog, 100);
         return;
       }
       
@@ -565,6 +562,11 @@ Ruckus|||优科RUCKUS-R700|||RUCKUS-R700
     // 强制显示调试信息
     console.log('products:', products.length, 'productBody:', productBody);
     console.log('searchInput:', searchInput, 'brandFilter:', brandFilter);
+  </script>
+  
+  <script>
+    // 立即尝试初始化，如果失败则重试
+    initProductCatalog();
   </script>
 </body>
 </html>
